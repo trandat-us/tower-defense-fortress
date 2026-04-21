@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EnemyInfo" format=3 uid="uid://dn2qog2hnjp8e"]
+
+[ext_resource type="Script" uid="uid://doxm2mykvldaw" path="res://data/info/enemies/def/enemy_info.gd" id="1_hv2tp"]
+
+[sub_resource type="Curve" id="Curve_mxsdt"]
+_limits = [1.0, 6.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 5.0, 0, 1, Vector2(1, 6), 5.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_hv2tp"]
+_limits = [1.0, 6.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 5.0, 0, 1, Vector2(1, 6), 5.0, 0.0, 1, 0]
+point_count = 2
+
+[resource]
+script = ExtResource("1_hv2tp")
+max_health_curve = SubResource("Curve_hv2tp")
+dropped_golds_curve = SubResource("Curve_mxsdt")
+id = &"enemy_red"
+name = "red_enemy"
+metadata/_custom_type_script = "uid://doxm2mykvldaw"

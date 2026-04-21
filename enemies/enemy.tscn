@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cuwhi7u1wh0bj"]
+
+[ext_resource type="Script" uid="uid://chpheu1wch2ty" path="res://enemies/enemy.gd" id="1_2mvqj"]
+[ext_resource type="PackedScene" uid="uid://bm1m38fltctbr" path="res://enemies/health bar/enemy_health_bar.tscn" id="2_7frlh"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7frlh"]
+viewport_path = NodePath("HealthBarMesh/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7frlh"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_7frlh")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_7frlh"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_7frlh")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7frlh"]
+resource_local_to_scene = true
+bg_color = Color(0, 0.87058824, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[node name="Enemy" type="CharacterBody3D" unique_id=2072180577 groups=["enemy"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_2mvqj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=298161450]
+
+[node name="HealthBarMesh" type="MeshInstance3D" parent="." unique_id=1424357792]
+mesh = SubResource("QuadMesh_7frlh")
+
+[node name="SubViewport" type="SubViewport" parent="HealthBarMesh" unique_id=1678385506]
+transparent_bg = true
+size = Vector2i(128, 128)
+
+[node name="EnemyHealthBar" parent="HealthBarMesh/SubViewport" unique_id=1015665068 instance=ExtResource("2_7frlh")]
+unique_name_in_owner = true
+theme_override_styles/fill = SubResource("StyleBoxFlat_7frlh")

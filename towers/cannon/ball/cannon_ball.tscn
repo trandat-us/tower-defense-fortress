@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ub7ivmxk2obq"]
+
+[ext_resource type="PackedScene" uid="uid://gba1513gwf3x" path="res://towers/tower_projectile.tscn" id="1_aoijh"]
+[ext_resource type="Script" uid="uid://dacy6magviiq0" path="res://towers/cannon/ball/cannon_ball.gd" id="1_lbsr5"]
+[ext_resource type="ArrayMesh" uid="uid://dxv1m6xj5rj1v" path="res://towers/cannon/ball/cannon_ball.res" id="3_jxs0y"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jxs0y"]
+radius = 0.14
+
+[node name="CannonBall" unique_id=1414386224 instance=ExtResource("1_aoijh")]
+script = ExtResource("1_lbsr5")
+speed = null
+
+[node name="ProjectileMesh" parent="." index="0" unique_id=863103909]
+mesh = ExtResource("3_jxs0y")
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=547873563]
+shape = SubResource("SphereShape3D_jxs0y")

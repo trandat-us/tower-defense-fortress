@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://cdbbdtndqehug"]
+
+[ext_resource type="Script" uid="uid://c4mk5sqxmpfxr" path="res://ui/hud/level pause menu/level_pause_menu.gd" id="1_ljc7o"]
+[ext_resource type="Shader" uid="uid://cvvkbm8puo753" path="res://ui/hud/level result gui/blur.gdshader" id="2_ljc7o"]
+[ext_resource type="Theme" uid="uid://dw2ja0bujqpuj" path="res://data/themes/button.tres" id="2_ysjl0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xtgth"]
+shader = ExtResource("2_ljc7o")
+shader_parameter/blur_amount = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d15sb"]
+bg_color = Color(0.34563842, 0.28291795, 0.22601482, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_size = 8
+
+[node name="LevelPauseMenu" type="Control" unique_id=334643842]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ljc7o")
+
+[node name="ColorBG" type="ColorRect" parent="." unique_id=998485924]
+material = SubResource("ShaderMaterial_xtgth")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="MainPanel" type="Panel" parent="." unique_id=2021807287]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33333334
+anchor_top = 0.17283951
+anchor_right = 0.6666667
+anchor_bottom = 0.86419755
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d15sb")
+metadata/_edit_use_anchors_ = true
+
+[node name="GameTitleVBox" type="VBoxContainer" parent="MainPanel" unique_id=1866336480]
+modulate = Color(0.9999998, 0.8032941, 0.40689984, 0.08627451)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = -80.0
+offset_right = 182.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MainPanel/GameTitleVBox" unique_id=1927259766]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 32
+text = "T O W E R  D E F E N S E"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MainPanel/GameTitleVBox" unique_id=1044360239]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 104
+text = "Fortress"
+horizontal_alignment = 1
+
+[node name="PauseLabel" type="Label" parent="MainPanel" unique_id=251913628]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -118.0
+offset_top = -56.0
+offset_right = 118.0
+offset_bottom = 58.666664
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0.099985994, 0.099985994, 0.099985994, 0.5254902)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 32
+theme_override_constants/shadow_outline_size = 32
+theme_override_font_sizes/font_size = 128
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonVBox" type="VBoxContainer" parent="MainPanel" unique_id=669835207]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -128.0
+offset_right = 90.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="MainPanel/ButtonVBox" unique_id=185930360]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_ysjl0")
+theme_override_font_sizes/font_size = 48
+text = "Resume"
+
+[node name="RestartButton" type="Button" parent="MainPanel/ButtonVBox" unique_id=1703639670]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_ysjl0")
+theme_override_font_sizes/font_size = 48
+text = "Restart"
+
+[node name="SettingsButton" type="Button" parent="MainPanel/ButtonVBox" unique_id=1605065666]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_ysjl0")
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="MainPanel/ButtonVBox" unique_id=612624943]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_ysjl0")
+theme_override_font_sizes/font_size = 48
+text = "Exit"
+
+[connection signal="pressed" from="MainPanel/ButtonVBox/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MainPanel/ButtonVBox/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="MainPanel/ButtonVBox/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainPanel/ButtonVBox/ExitButton" to="." method="_on_exit_button_pressed"]

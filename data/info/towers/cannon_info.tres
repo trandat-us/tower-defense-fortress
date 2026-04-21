@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="TowerInfo" format=3 uid="uid://h51r60r1vgjm"]
+
+[ext_resource type="Texture2D" uid="uid://bx5jhj5nnmft0" path="res://assets/textures/tower previews/cannon_preview.png" id="1_p5vhk"]
+[ext_resource type="Script" uid="uid://bgm4s4mac8ec1" path="res://data/info/towers/def/tower_info.gd" id="1_sfdwu"]
+
+[resource]
+script = ExtResource("1_sfdwu")
+max_health = Array[int]([120, 170, 230, 300, 380])
+attack_damage = Array[int]([18, 22, 26, 32, 38])
+attack_range = Array[float]([3.0, 3.0, 3.25, 3.25, 3.5])
+reload_times = Array[float]([0.75, 0.72, 0.68, 0.62, 0.56])
+upgrade_costs = Array[int]([140, 190, 250, 320])
+id = &"tower_cannon"
+name = "cannon"
+title = "siege_tower"
+icon = ExtResource("1_p5vhk")
+metadata/_custom_type_script = "uid://bgm4s4mac8ec1"

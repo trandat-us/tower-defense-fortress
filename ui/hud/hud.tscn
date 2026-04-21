@@ -1,0 +1,474 @@
+[gd_scene format=3 uid="uid://c0wcowbd3a736"]
+
+[ext_resource type="Script" uid="uid://cyigqv1633yn2" path="res://ui/hud/hud.gd" id="1_w75iv"]
+[ext_resource type="PackedScene" uid="uid://cglpcink8gw8g" path="res://ui/hud/tower card/tower_card_cannon.tscn" id="1_xmswo"]
+[ext_resource type="PackedScene" uid="uid://dsard5f66yyjy" path="res://ui/hud/tower card/tower_card_catapult.tscn" id="2_4d6w6"]
+[ext_resource type="PackedScene" uid="uid://4vr5p11awg4b" path="res://ui/hud/tower card/tower_card_ballista.tscn" id="3_e0nub"]
+[ext_resource type="PackedScene" uid="uid://b7pf325uriemt" path="res://ui/hud/tower detail panel/tower_detail_panel.tscn" id="5_imuuq"]
+[ext_resource type="Theme" uid="uid://dw2ja0bujqpuj" path="res://data/themes/button.tres" id="6_aixkq"]
+[ext_resource type="PackedScene" uid="uid://tpr0p70kfr0y" path="res://ui/hud/countdown panel/countdown_panel.tscn" id="6_kwc50"]
+[ext_resource type="Script" uid="uid://bx0auexcfc1ra" path="res://ui/hud/start_wave_button.gd" id="7_o2lis"]
+[ext_resource type="PackedScene" uid="uid://cjf7gy7qbfdy2" path="res://ui/hud/top bar gui/top_bar_gui.tscn" id="8_gfles"]
+[ext_resource type="PackedScene" uid="uid://qelixmnilm6s" path="res://ui/hud/level result gui/level_result_gui.tscn" id="10_cxhb7"]
+[ext_resource type="PackedScene" uid="uid://b5c8fucr3v613" path="res://ui/hud/level entry gui/level_entry_gui.tscn" id="11_5uuaq"]
+[ext_resource type="PackedScene" uid="uid://dh4ffmwwhafek" path="res://ui/hud/speed boost button/speed_boost_button.tscn" id="11_gv4gi"]
+[ext_resource type="Texture2D" uid="uid://wlrnkfdl2gir" path="res://assets/textures/icons/settings.png" id="11_p3vm3"]
+[ext_resource type="PackedScene" uid="uid://cdbbdtndqehug" path="res://ui/hud/level pause menu/level_pause_menu.tscn" id="14_5mn0o"]
+[ext_resource type="PackedScene" uid="uid://c8ictadvbumsh" path="res://utils/control sound player/control_sound_player.tscn" id="15_3mxrk"]
+
+[sub_resource type="Animation" id="Animation_aixkq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_gfles"]
+resource_name = "hide"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StartWaveButton:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_cxhb7"]
+resource_name = "show"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StartWaveButton:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aixkq"]
+_data = {
+&"RESET": SubResource("Animation_aixkq"),
+&"hide": SubResource("Animation_gfles"),
+&"show": SubResource("Animation_cxhb7")
+}
+
+[sub_resource type="Animation" id="Animation_kwc50"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IngameControls/TowerDetailPanel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IngameControls/TowerDetailPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(864, 64)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IngameControls/TowerDetailPanel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o2lis"]
+resource_name = "hide_tower_detail_card"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IngameControls/TowerDetailPanel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IngameControls/TowerDetailPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(832, 64), Vector2(864, 64)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IngameControls/TowerDetailPanel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_imuuq"]
+resource_name = "show_tower_detail_card"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IngameControls/TowerDetailPanel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IngameControls/TowerDetailPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(864, 64), Vector2(832, 64)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IngameControls/TowerDetailPanel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kwc50"]
+_data = {
+&"RESET": SubResource("Animation_kwc50"),
+&"hide_tower_detail_panel": SubResource("Animation_o2lis"),
+&"show_tower_detail_panel": SubResource("Animation_imuuq")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gfles"]
+bg_color = Color(1, 0.40863404, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.7249537, 0.28717658, 4.813075e-07, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="HUD" type="CanvasLayer" unique_id=734667826]
+script = ExtResource("1_w75iv")
+
+[node name="LevelEntryGUI" parent="." unique_id=267298953 instance=ExtResource("11_5uuaq")]
+unique_name_in_owner = true
+
+[node name="IngameControls" type="Control" parent="." unique_id=1054810475]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TowerCardsHBox" type="HBoxContainer" parent="IngameControls" unique_id=81683857]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 504.0
+offset_right = 280.0
+offset_bottom = 632.0
+theme_override_constants/separation = 12
+
+[node name="TowerCardCannon" parent="IngameControls/TowerCardsHBox" unique_id=1759294685 instance=ExtResource("1_xmswo")]
+layout_mode = 2
+
+[node name="TowerCardCatapult" parent="IngameControls/TowerCardsHBox" unique_id=1114961248 instance=ExtResource("2_4d6w6")]
+z_index = -1
+layout_mode = 2
+
+[node name="TowerCardBallista" parent="IngameControls/TowerCardsHBox" unique_id=1891080511 instance=ExtResource("3_e0nub")]
+z_index = -2
+layout_mode = 2
+
+[node name="PreparePhaseGUI" type="Control" parent="IngameControls" unique_id=1137493871]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="IngameControls/PreparePhaseGUI" unique_id=1319335443]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.0
+offset_top = 72.0
+offset_right = 89.0
+offset_bottom = 97.083336
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 28
+text = "Next wave coming in"
+horizontal_alignment = 1
+
+[node name="CountdownPanel" parent="IngameControls/PreparePhaseGUI" unique_id=1224488793 instance=ExtResource("6_kwc50")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 104.0
+offset_bottom = 153.0
+grow_vertical = 1
+
+[node name="StartWaveButton" type="Button" parent="IngameControls/PreparePhaseGUI" unique_id=107800936]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -216.0
+offset_top = -96.0
+offset_right = -40.0
+offset_bottom = -37.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_aixkq")
+theme_override_font_sizes/font_size = 36
+text = "Start Wave"
+script = ExtResource("7_o2lis")
+
+[node name="PreparePhaseAnimPlayer" type="AnimationPlayer" parent="IngameControls/PreparePhaseGUI" unique_id=1797377961]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_aixkq")
+
+[node name="TowerDetailPanel" parent="IngameControls" unique_id=938449135 instance=ExtResource("5_imuuq")]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -288.0
+offset_top = -260.0
+offset_right = 32.000977
+offset_bottom = 252.0
+grow_horizontal = 0
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="IngameControls/TowerDetailPanel" unique_id=1064866344]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_kwc50")
+
+[node name="TopBarGUI" parent="IngameControls" unique_id=756201367 instance=ExtResource("8_gfles")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 56.0
+grow_vertical = 1
+
+[node name="LevelLabel" type="Label" parent="IngameControls" unique_id=366146865]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 119.9999
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_gfles")
+text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpeedBoostButton" parent="IngameControls" unique_id=1517526775 instance=ExtResource("11_gv4gi")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -112.0
+offset_top = 8.0
+offset_right = -64.0
+offset_bottom = 56.0
+grow_horizontal = 0
+grow_vertical = 1
+
+[node name="GearButton" type="Button" parent="IngameControls" unique_id=266937657]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme = ExtResource("6_aixkq")
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="IngameControls/GearButton" unique_id=1692047133]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_p3vm3")
+expand_mode = 2
+
+[node name="LevelPauseMenu" parent="." unique_id=334643842 instance=ExtResource("14_5mn0o")]
+unique_name_in_owner = true
+visible = false
+
+[node name="LevelResultGUI" parent="." unique_id=1721874880 instance=ExtResource("10_cxhb7")]
+unique_name_in_owner = true
+visible = false
+
+[node name="ControlSoundPlayer" parent="." unique_id=1157000690 node_paths=PackedStringArray("root_node") instance=ExtResource("15_3mxrk")]
+root_node = NodePath("..")
+
+[connection signal="entry_ended" from="LevelEntryGUI" to="." method="_on_level_entry_gui_entry_ended"]
+[connection signal="timeout" from="IngameControls/PreparePhaseGUI/CountdownPanel" to="." method="_on_countdown_panel_timeout"]
+[connection signal="pressed" from="IngameControls/PreparePhaseGUI/StartWaveButton" to="." method="_on_next_wave_button_pressed"]
+[connection signal="closed_button_pressed" from="IngameControls/TowerDetailPanel" to="." method="_on_tower_detail_panel_closed_button_pressed"]
+[connection signal="pressed" from="IngameControls/GearButton" to="." method="_on_gear_button_pressed"]

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://4qnlibv1iimc"]
+
+[ext_resource type="Texture2D" uid="uid://qj33y450ly2d" path="res://assets/textures/icons/trophy.png" id="1_1mkb3"]
+[ext_resource type="Script" uid="uid://cphk7acrdr7tj" path="res://ui/hud/level result gui/trophy_silhouette.gd" id="2_33wnb"]
+
+[node name="TrophySilhouette" type="TextureRect" unique_id=1683753607]
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1mkb3")
+expand_mode = 2
+script = ExtResource("2_33wnb")
+
+[node name="TrophyIcon" type="TextureRect" parent="." unique_id=2052052070]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(80, 80)
+texture = ExtResource("1_1mkb3")
+expand_mode = 2

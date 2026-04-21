@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://gba1513gwf3x"]
+
+[ext_resource type="Script" uid="uid://cc6kawyqc4iln" path="res://towers/tower_projectile.gd" id="1_udnrf"]
+
+[node name="TowerProjectile" type="Area3D" unique_id=1414386224 groups=["tower_projectile"]]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_udnrf")
+
+[node name="ProjectileMesh" type="MeshInstance3D" parent="." unique_id=863103909]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=547873563]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

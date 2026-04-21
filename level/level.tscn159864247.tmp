@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://cig71rhv703kw"]
+
+[ext_resource type="Script" uid="uid://nd8c1g71u8qr" path="res://level/level.gd" id="1_r8ree"]
+[ext_resource type="Script" uid="uid://lkhkmmfu3pj7" path="res://level/events_bus.gd" id="8_55e6f"]
+[ext_resource type="MeshLibrary" uid="uid://cdyvvkc0m8ed6" path="res://meshlibs/tiles.meshlib" id="9_ek8bf"]
+[ext_resource type="MeshLibrary" uid="uid://cl5r11j7oya8p" path="res://meshlibs/river_tiles.meshlib" id="10_af3oj"]
+[ext_resource type="MeshLibrary" uid="uid://l605u81mfcpk" path="res://meshlibs/outer_tiles.meshlib" id="11_x6r8v"]
+[ext_resource type="Script" uid="uid://betb060wadogi" path="res://level/enemy_paths.gd" id="30_s1aav"]
+[ext_resource type="Script" uid="uid://belu7ghwwxto0" path="res://level/camera_pivot.gd" id="31_3p3v4"]
+[ext_resource type="PackedScene" uid="uid://c0wcowbd3a736" path="res://ui/hud/hud.tscn" id="32_fdhdt"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nyvx4"]
+sky_top_color = Color(0.24274531, 0.29716042, 0.36754546, 1)
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sky_curve = 0.047796033
+ground_bottom_color = Color(0.32941177, 0.39607844, 0.48235294, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_curve = 0.018660657
+
+[sub_resource type="Sky" id="Sky_41n4r"]
+sky_material = SubResource("ProceduralSkyMaterial_nyvx4")
+
+[sub_resource type="Environment" id="Environment_ueusv"]
+background_mode = 2
+sky = SubResource("Sky_41n4r")
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+
+[node name="Level" type="Node3D" unique_id=137979690]
+script = ExtResource("1_r8ree")
+
+[node name="EventsBus" type="Node" parent="." unique_id=849977268 groups=["events_bus"]]
+script = ExtResource("8_55e6f")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1652130675]
+environment = SubResource("Environment_ueusv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=39776042]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+light_energy = 0.8
+shadow_enabled = true
+
+[node name="Map" type="Node3D" parent="." unique_id=1927295248 groups=["map"]]
+
+[node name="Tiles" type="GridMap" parent="Map" unique_id=647349341]
+unique_name_in_owner = true
+mesh_library = ExtResource("9_ek8bf")
+cell_size = Vector3(1, 0.2, 1)
+cell_center_y = false
+collision_mask = 0
+metadata/_editor_floor_ = Vector3(0, -1, 0)
+
+[node name="RiverTiles" type="GridMap" parent="Map" unique_id=324183528]
+mesh_library = ExtResource("10_af3oj")
+cell_size = Vector3(1, 0.2, 1)
+cell_center_y = false
+metadata/_editor_floor_ = Vector3(0, -1, 0)
+
+[node name="OuterTiles" type="GridMap" parent="Map" unique_id=1290086526]
+mesh_library = ExtResource("11_x6r8v")
+cell_size = Vector3(1, 0.2, 1)
+cell_center_y = false
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Buildings" type="Node3D" parent="Map" unique_id=1215417644]
+
+[node name="Towers" type="Node3D" parent="Map" unique_id=1589079042]
+unique_name_in_owner = true
+
+[node name="EnemyPaths" type="Node3D" parent="." unique_id=1009155360]
+script = ExtResource("30_s1aav")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1573138542 node_paths=PackedStringArray("top_left_limit", "bottom_right_limit")]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+script = ExtResource("31_3p3v4")
+top_left_limit = NodePath("../TopLeftCameraLimit")
+bottom_right_limit = NodePath("../BottomRightCameraLimit")
+movement_locked = true
+zoom_locked = true
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=1230932285]
+transform = Transform3D(1, 0, 0, 0, 0.46979517, 0.8827755, 0, -0.8827755, 0.46979517, 0, 0, 0)
+collision_mask = 0
+spring_length = 8.5
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=1443809388]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
+
+[node name="TopLeftCameraLimit" type="Marker3D" parent="." unique_id=1704096317]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, -8.5)
+
+[node name="BottomRightCameraLimit" type="Marker3D" parent="." unique_id=1685059071]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, 0, 12.5)
+
+[node name="HUD" parent="." unique_id=734667826 instance=ExtResource("32_fdhdt")]
+
+[connection signal="wave_ended" from="EnemyPaths" to="." method="_on_enemy_paths_wave_ended"]
+[connection signal="ingame_controls_showed_up" from="HUD" to="." method="_on_hud_ingame_controls_showed_up"]
+[connection signal="prepare_phase_ended" from="HUD" to="." method="_on_hud_prepare_phase_ended"]
+[connection signal="tower_card_dragged" from="HUD" to="." method="_on_hud_tower_card_dragged"]
+[connection signal="tower_card_dropped" from="HUD" to="." method="_on_hud_tower_card_dropped"]
+[connection signal="tower_detail_panel_closed" from="HUD" to="." method="_on_hud_tower_detail_panel_closed"]

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cn2sdby4p84od"]
+
+[ext_resource type="AudioStream" uid="uid://bi7nxr43i4rw3" path="res://assets/sounds/tower/catapult_boulder_hit.mp3" id="1_7kt06"]
+
+[node name="CatapultBoulderHitAudio" type="AudioStreamPlayer3D" unique_id=1077993649]
+stream = ExtResource("1_7kt06")
+volume_db = -20.0
+pitch_scale = 0.7
+bus = &"SFX"

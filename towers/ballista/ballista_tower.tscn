@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://cbxasskevr6hy"]
+
+[ext_resource type="PackedScene" uid="uid://eqfcvrj7k5a" path="res://towers/tower.tscn" id="1_gmuvm"]
+[ext_resource type="Shader" uid="uid://ckft8ccv53cei" path="res://towers/attack_range_visual.gdshader" id="2_6enm8"]
+[ext_resource type="ArrayMesh" uid="uid://jx3x7bp12801" path="res://towers/ballista/ballista_emplacement.res" id="2_ep2xw"]
+[ext_resource type="Script" uid="uid://dtksxpvfirat2" path="res://towers/ballista/ballista_tower.gd" id="2_v5yvh"]
+[ext_resource type="ArrayMesh" uid="uid://d1ild7ho2sghv" path="res://towers/ballista/ballista_weapon.res" id="3_ep2xw"]
+[ext_resource type="Resource" uid="uid://dgjb14kk7wusg" path="res://data/info/towers/ballista_info.tres" id="3_ha14p"]
+[ext_resource type="AudioStream" uid="uid://saundxyj5liq" path="res://assets/sounds/tower/ballista_arrow_shoot.mp3" id="7_oy340"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ep2xw"]
+height = 0.6
+
+[sub_resource type="Animation" id="Animation_ha14p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.4438228e-15, 0.41000006, -0.0112)]
+}
+
+[sub_resource type="Animation" id="Animation_v5yvh"]
+resource_name = "shoot"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1),
+"transitions": PackedFloat32Array(0.5, 1, 2, 1),
+"update": 0,
+"values": [Vector3(1.4438228e-15, 0.41000006, -0.0112), Vector3(0, 0.41, -0.025), Vector3(0, 0.41, -0.025), Vector3(1.4438228e-15, 0.41000006, -0.0112)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%EquipmentBase/..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_shoot_arrow"
+}, {
+"args": [],
+"method": &"start_reload_timer"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%EquipmentBase/../ArrowShootAudio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ha14p"]
+_data = {
+&"RESET": SubResource("Animation_ha14p"),
+&"shoot": SubResource("Animation_v5yvh")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oy340"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_6enm8")
+shader_parameter/alpha = 1.0
+shader_parameter/ring_color = Color(1, 1, 1, 0.6)
+shader_parameter/ring_width = 0.01
+shader_parameter/outer_radius = 1.0
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_softness = 0.001
+shader_parameter/inner_softness = 0.03
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ahtgv"]
+resource_local_to_scene = true
+size = Vector2(10, 10)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8uewe"]
+resource_local_to_scene = true
+height = 0.99997556
+radius = 5.0
+
+[node name="BallistaTower" unique_id=1172598400 instance=ExtResource("1_gmuvm")]
+script = ExtResource("2_v5yvh")
+info = ExtResource("3_ha14p")
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=1819340235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("CylinderShape3D_ep2xw")
+
+[node name="Emplacement" parent="EquipmentBase" parent_id_path=PackedInt32Array(1906740458) index="0" unique_id=907958324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = ExtResource("2_ep2xw")
+
+[node name="Weapon" parent="EquipmentBase/Emplacement" index="0" unique_id=558964895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4438228e-15, 0.41000006, -0.0112)
+mesh = ExtResource("3_ep2xw")
+
+[node name="ShootPosition" type="Marker3D" parent="EquipmentBase/Emplacement/Weapon" index="0" unique_id=465774847]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.09488058)
+
+[node name="ShootAnimPlayer" type="AnimationPlayer" parent="EquipmentBase/Emplacement/Weapon" index="1" unique_id=703924625]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_ha14p")
+
+[node name="AttackRangeVisual" parent="EnemyDetectorArea" parent_id_path=PackedInt32Array(417680240) index="0" unique_id=445711872]
+material_override = SubResource("ShaderMaterial_oy340")
+mesh = SubResource("PlaneMesh_ahtgv")
+
+[node name="EnemyDetectorShape" parent="EnemyDetectorArea" parent_id_path=PackedInt32Array(417680240) index="1" unique_id=1658075024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49993902, 0)
+shape = SubResource("CylinderShape3D_8uewe")
+
+[node name="ArrowShootAudio" type="AudioStreamPlayer3D" parent="." index="6" unique_id=658750571]
+stream = ExtResource("7_oy340")
+volume_db = -20.0

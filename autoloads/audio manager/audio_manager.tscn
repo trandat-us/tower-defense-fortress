@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c80gfctcpj1l3"]
+
+[ext_resource type="Script" uid="uid://dkqv80mm8d7g3" path="res://autoloads/audio manager/audio_manager.gd" id="1_tr7pb"]
+
+[node name="AudioManager" type="Node" unique_id=955883182]
+script = ExtResource("1_tr7pb")
+
+[node name="General" type="Node" parent="." unique_id=422893761]
+
+[node name="GameOver" type="AudioStreamPlayer" parent="General" unique_id=1010181789]
+bus = &"BGM"
+
+[node name="Custom" type="Node" parent="." unique_id=1991197960]

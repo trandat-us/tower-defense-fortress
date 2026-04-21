@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://cyblixg2yspga"]
+
+[ext_resource type="PackedScene" uid="uid://b4tkbju0wobda" path="res://ui/hud/level result gui/trophies_h_box.tscn" id="1_5quyq"]
+[ext_resource type="Script" uid="uid://c48qbntdh8y52" path="res://ui/main menu/level button/level_button.gd" id="1_yin4l"]
+[ext_resource type="Texture2D" uid="uid://bhc5v2f185xjw" path="res://assets/textures/icons/lock.png" id="3_8fwog"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fwog"]
+bg_color = Color(0, 0, 0, 0.5)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ukq4p"]
+bg_color = Color(0, 0, 0, 0.5)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fauy"]
+bg_color = Color(0.13816993, 0.13816993, 0.13816993, 0.5)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="LevelButton" type="Button" unique_id=984204553]
+custom_minimum_size = Vector2(164, 120)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -60.0
+offset_right = 82.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8fwog")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ukq4p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2fauy")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_8fwog")
+disabled = true
+script = ExtResource("1_yin4l")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=712331437]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=154950739]
+layout_mode = 2
+
+[node name="LockIcon" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1795200311]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("3_8fwog")
+expand_mode = 2
+
+[node name="LevelNumber" type="Label" parent="MarginContainer/VBoxContainer" unique_id=415658557]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+text = "0"
+
+[node name="LevelTitle" type="Label" parent="MarginContainer/VBoxContainer" unique_id=483611178]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.6)
+theme_override_font_sizes/font_size = 24
+text = "Title"
+
+[node name="TrophiesHBox" parent="MarginContainer/VBoxContainer" unique_id=1469761174 instance=ExtResource("1_5quyq")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+animation = false
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

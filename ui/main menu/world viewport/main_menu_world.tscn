@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://gal6bia6n26t"]
+
+[ext_resource type="Script" uid="uid://dspmipplb67ff" path="res://ui/main menu/world viewport/main_menu_world.gd" id="1_ulveo"]
+[ext_resource type="MeshLibrary" uid="uid://cdyvvkc0m8ed6" path="res://meshlibs/tiles.meshlib" id="1_wd60r"]
+[ext_resource type="ArrayMesh" uid="uid://dvuya1ivbnr3m" path="res://towers/tower_round_base.res" id="6_537fg"]
+[ext_resource type="ArrayMesh" uid="uid://bephnh75srn1s" path="res://towers/cannon/cannon_emplacement.res" id="7_wveb5"]
+[ext_resource type="ArrayMesh" uid="uid://dc5d03xs3t4ci" path="res://towers/cannon/cannon_weapon.res" id="8_f3t3r"]
+[ext_resource type="ArrayMesh" uid="uid://cw6q2am02pxwb" path="res://towers/catapult/catapult_emplacement.res" id="12_sxeus"]
+[ext_resource type="ArrayMesh" uid="uid://vuonguqx0ok1" path="res://towers/catapult/catapult_weapon.res" id="13_ft8y8"]
+[ext_resource type="PackedScene" uid="uid://qcg3j2ck0dkt" path="res://towers/catapult/boulder/catapult_boulder.tscn" id="14_7kn03"]
+[ext_resource type="ArrayMesh" uid="uid://jx3x7bp12801" path="res://towers/ballista/ballista_emplacement.res" id="18_4risg"]
+[ext_resource type="ArrayMesh" uid="uid://d1ild7ho2sghv" path="res://towers/ballista/ballista_weapon.res" id="19_fu6ll"]
+[ext_resource type="ArrayMesh" uid="uid://h5x6f622g4t" path="res://towers/ballista/arrow/ballista_arrow.res" id="19_hpoev"]
+[ext_resource type="ArrayMesh" uid="uid://dxv1m6xj5rj1v" path="res://towers/cannon/ball/cannon_ball.res" id="20_jt3uk"]
+[ext_resource type="PackedScene" uid="uid://owtadcfx5mlf" path="res://assets/models/enemy-ufo-a.glb" id="21_48pyv"]
+[ext_resource type="PackedScene" uid="uid://baup5bjboi88x" path="res://assets/models/enemy-ufo-c.glb" id="22_emxca"]
+[ext_resource type="PackedScene" uid="uid://dbyrevyjtpoyl" path="res://assets/models/enemy-ufo-beam.glb" id="23_lyd8i"]
+[ext_resource type="PackedScene" uid="uid://d1ab4t70pfrw" path="res://assets/models/enemy-ufo-b.glb" id="24_nmnme"]
+[ext_resource type="PackedScene" uid="uid://cyk7p8gv7nlb1" path="res://assets/models/detail-dirt.glb" id="25_5v3y6"]
+[ext_resource type="PackedScene" uid="uid://tpduwgf6gxbi" path="res://assets/models/tower-round-build-f.glb" id="26_xkg8k"]
+[ext_resource type="PackedScene" uid="uid://b33kbbereo4j5" path="res://assets/models/tower-square-build-c.glb" id="27_b0kto"]
+[ext_resource type="PackedScene" uid="uid://dm1cno83acfhi" path="res://assets/models/tower-round-crystals.glb" id="28_4kqle"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hpoev"]
+sky_top_color = Color(0.4459908, 0.4211167, 0.60353565, 1)
+sky_horizon_color = Color(0.6719191, 0.65795064, 0.6945554, 1)
+ground_horizon_color = Color(0.6719191, 0.65795064, 0.6945554, 1)
+
+[sub_resource type="Sky" id="Sky_jt3uk"]
+sky_material = SubResource("ProceduralSkyMaterial_hpoev")
+
+[sub_resource type="Environment" id="Environment_skxt5"]
+background_mode = 2
+sky = SubResource("Sky_jt3uk")
+tonemap_mode = 2
+
+[node name="MainMenuWorld" type="Node3D" unique_id=1822125720]
+script = ExtResource("1_ulveo")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1146039410]
+environment = SubResource("Environment_skxt5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1643883811]
+transform = Transform3D(-0.8660254, -0.50000006, -2.1855696e-08, 0, -4.371139e-08, 1, -0.50000006, 0.8660254, 3.7855173e-08, 0, 0, 0)
+light_energy = 0.4
+directional_shadow_max_distance = 1.0
+
+[node name="GridMap" type="GridMap" parent="." unique_id=1613713442]
+mesh_library = ExtResource("1_wd60r")
+cell_size = Vector3(1, 0.2, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(-1, 65535, 655367, -1, 0, 12, -65536, 0, 1441799, -65535, 0, 1441799, -2, 65535, 655366, -65536, 65535, 655366, -2, 0, 1048583, -1, 65533, 16, -1, 65534, 7, -1, 1, 7, -65536, 1, 5, -2, 1, 6, -3, 1, 6, -3, 65535, 655361, -3, 0, 1441799, -4, 0, 10, -4, 1, 655368, 65532, 2, 655367, 65532, 3, 655367, -2, 2, 655364, -65536, 2, 655362, -2, 65534, 655360, -3, 65534, 655366, 65533, 65534, 655366, 65533, 2, 655363, 65533, 3, 1048579, -1, 2, 7, -1, 3, 7, -2, 3, 0, -65535, 65535, 5, -65535, 1, 5, -65536, 65534, 4, -65535, 65534, 3, 65533, 65533, 6, 65533, 65532, 5, 65534, 65533, 3, 65534, 65532, 6, 65535, 65532, 0, 0, 65532, 2, 0, 65533, 6, 1, 65532, 4, 1, 65533, 2, 131067, 3, 6, 131067, 2, 6, 65531, 1, 6, 65531, 0, 6, 65531, 65535, 6, 65531, 65534, 6, 65532, 65534, 6, 65532, 65535, 6, 131067, 65534, 3, 196603, 65533, 0, 196603, 65532, 4, 131068, 65532, 3, 131068, 65533, 6, 196602, 0, 4, 196602, 1, 4, 196602, 2, 3, 196602, 3, 3, 131066, 1, 6, 131066, 0, 6, 131066, 65535, 6, 131066, 65534, 6, 196601, 2, 0, 196601, 1, 1, 131069, 65531, 1, 131071, 65530, 2, 131070, 65530, 4, 65536, 65530, 4, 65537, 65531, 5, 131070, 65531, 6, 131071, 65531, 6, 65536, 65531, 6, 131068, 65531, 6, 196607, 65529, 4, 196606, 65529, 4, 131072, 65529, 3, 196605, 65530, 6, -65534, 65535, 6)
+}
+metadata/_editor_floor_ = Vector3(0, -1, 0)
+
+[node name="CannonTower" type="Node3D" parent="." unique_id=982980664]
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, 0.5, 0, -0.5)
+
+[node name="EquipmentBase" type="MeshInstance3D" parent="CannonTower" unique_id=1546951286]
+unique_name_in_owner = true
+mesh = ExtResource("6_537fg")
+metadata/_edit_lock_ = true
+
+[node name="Emplacement" type="MeshInstance3D" parent="CannonTower/EquipmentBase" unique_id=879554262]
+unique_name_in_owner = true
+transform = Transform3D(0.86602527, 0, -0.49999997, 0, 1, 0, 0.49999997, 0, 0.86602527, 0, 0.1, 0)
+mesh = ExtResource("7_wveb5")
+
+[node name="Weapon" type="MeshInstance3D" parent="CannonTower/EquipmentBase/Emplacement" unique_id=2041182538]
+unique_name_in_owner = true
+transform = Transform3D(0.9829628, -0.18301271, -0.017037094, 0.18301271, 0.9659258, 0.1830127, -0.017037094, -0.1830127, 0.98296285, -5.9604645e-08, 0.383, -0.00074997544)
+mesh = ExtResource("8_f3t3r")
+
+[node name="CatapultTower" type="Node3D" parent="." unique_id=1731088015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.5)
+
+[node name="EquipmentBase" type="MeshInstance3D" parent="CatapultTower" unique_id=1874887830]
+mesh = ExtResource("6_537fg")
+metadata/_edit_lock_ = true
+
+[node name="Emplacement" type="MeshInstance3D" parent="CatapultTower/EquipmentBase" unique_id=1594449782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = ExtResource("12_sxeus")
+
+[node name="Weapon" type="MeshInstance3D" parent="CatapultTower/EquipmentBase/Emplacement" unique_id=1964475063]
+transform = Transform3D(1, 0, 0, 0, 0.5583094, -0.82963175, 0, 0.82963175, 0.5583094, 0, 0.36245802, 0.031694174)
+mesh = ExtResource("13_ft8y8")
+
+[node name="CatapultBoulder" parent="CatapultTower" unique_id=886983434 instance=ExtResource("14_7kn03")]
+transform = Transform3D(1, 0, 0, 0, 0.57553345, -0.8177782, 0, 0.8177782, 0.57553345, 0, 0.9517709, 0.20636702)
+
+[node name="BallistaTower" type="Node3D" parent="." unique_id=2083782978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.2, -1.5)
+
+[node name="EquipmentBase" type="MeshInstance3D" parent="BallistaTower" unique_id=310979826]
+mesh = ExtResource("6_537fg")
+metadata/_edit_lock_ = true
+
+[node name="Emplacement" type="MeshInstance3D" parent="BallistaTower/EquipmentBase" unique_id=176800417]
+transform = Transform3D(0.48891053, 0, 0.8723339, 0, 1, 0, -0.8723339, 0, 0.48891053, 0, 0.10000001, 0)
+mesh = ExtResource("18_4risg")
+
+[node name="Weapon" type="MeshInstance3D" parent="BallistaTower/EquipmentBase/Emplacement" unique_id=419714731]
+transform = Transform3D(0.9989568, -0.043478183, -0.013966054, 0.045628253, 0.9378367, 0.34406465, -0.0018613935, -0.344343, 0.9388423, 0, 0.41000003, -0.011199951)
+mesh = ExtResource("19_fu6ll")
+
+[node name="enemy-ufo-a2" parent="." unique_id=868593321 instance=ExtResource("21_48pyv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 2.5)
+
+[node name="enemy-ufo-c2" parent="." unique_id=1343149484 instance=ExtResource("22_emxca")]
+transform = Transform3D(1, 0, 0, 0, 0.9998298, -0.018447082, 0, 0.018447082, 0.9998298, -3.5, 0.8483918, 0.95774615)
+
+[node name="enemy-ufo-beam2" parent="enemy-ufo-c2" unique_id=912309871 instance=ExtResource("23_lyd8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="enemy-ufo-b2" parent="." unique_id=161578694 instance=ExtResource("24_nmnme")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5024816, 0.1611867, -1.3912185)
+
+[node name="detail-dirt2" parent="." unique_id=466496202 instance=ExtResource("25_5v3y6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4666355, 4.5119463e-17, -0.4978819)
+
+[node name="tower-round-build-f2" parent="." unique_id=1950672881 instance=ExtResource("26_xkg8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.19999999, -0.5)
+
+[node name="tower-square-build-c2" parent="." unique_id=41418058 instance=ExtResource("27_b0kto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.2, -2.6000001)
+
+[node name="tower-round-crystals2" parent="." unique_id=2048286153 instance=ExtResource("28_4kqle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.4, 2.5)
+
+[node name="ProjectileMesh" type="MeshInstance3D" parent="." unique_id=863103909]
+transform = Transform3D(0.5564267, -0.16023594, 0.8152998, 0.103580125, 0.9869516, 0.12328022, -0.8244153, 0.015852446, 0.56576335, 0.014422357, 1.4395307, 0.35790414)
+mesh = ExtResource("19_hpoev")
+
+[node name="ProjectileMesh2" type="MeshInstance3D" parent="." unique_id=359616167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.164704, 0.6154859, -0.14099276)
+mesh = ExtResource("20_jt3uk")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1481689510]
+transform = Transform3D(0.9986295, 0, -0.05233596, 0, 1, 0, 0.05233596, 0, 0.9986295, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=831309487]
+transform = Transform3D(0.61881626, -0.6336233, 0.46431455, 0.010129836, 0.5974676, 0.8018291, -0.7854705, -0.49148142, 0.37614116, 0.5, 2.1754813, 1.5)

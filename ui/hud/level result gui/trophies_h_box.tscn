@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b4tkbju0wobda"]
+
+[ext_resource type="Script" uid="uid://btc2f6wx4sxj3" path="res://ui/hud/level result gui/trophies_h_box.gd" id="1_1xo68"]
+[ext_resource type="PackedScene" uid="uid://4qnlibv1iimc" path="res://ui/hud/level result gui/trophy_silhouette.tscn" id="2_1xo68"]
+
+[node name="TrophiesHBox" type="HBoxContainer" unique_id=1469761174]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.0
+offset_top = -80.0
+offset_right = 244.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1xo68")
+
+[node name="TrophySilhouette" parent="." unique_id=1683753607 instance=ExtResource("2_1xo68")]
+layout_mode = 2
+
+[node name="TrophySilhouette2" parent="." unique_id=2068645828 instance=ExtResource("2_1xo68")]
+layout_mode = 2
+
+[node name="TrophySilhouette3" parent="." unique_id=336210814 instance=ExtResource("2_1xo68")]
+layout_mode = 2

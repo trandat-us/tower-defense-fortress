@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://hjk5fl8gkofv"]
+
+[ext_resource type="Script" uid="uid://i3dmkg4ova1f" path="res://ui/dropped golds mesh/dropped_golds_mesh.gd" id="1_70vax"]
+[ext_resource type="Texture2D" uid="uid://drw0i1mwbxh87" path="res://assets/textures/icons/coin.png" id="1_ebx82"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nbh1x"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbh1x"]
+resource_local_to_scene = true
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_nbh1x")
+billboard_mode = 1
+fixed_size = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_nbh1x"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_nbh1x")
+size = Vector2(0.2, 0.2)
+
+[node name="DroppedGoldsMesh" type="MeshInstance3D" unique_id=1550222174]
+mesh = SubResource("QuadMesh_nbh1x")
+script = ExtResource("1_70vax")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=238784369]
+transparent_bg = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewport" unique_id=2062373835]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.5
+offset_top = -71.50003
+offset_right = 225.5
+offset_bottom = 71.50003
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="GoldsLabel" type="Label" parent="SubViewport/HBoxContainer" unique_id=1207626897]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/font_size = 160
+text = "+ 150"
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport/HBoxContainer" unique_id=1812861837]
+texture_filter = 1
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_ebx82")
+expand_mode = 2

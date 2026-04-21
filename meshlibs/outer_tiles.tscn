@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://xndlumr7q2rc"]
+
+[ext_resource type="PackedScene" uid="uid://bb5rgsmxooe7j" path="res://assets/models/tile-corner-inner.glb" id="1_p716q"]
+[ext_resource type="PackedScene" uid="uid://tn87q1obccmn" path="res://assets/models/tile-corner-outer.glb" id="2_yxq2h"]
+[ext_resource type="PackedScene" uid="uid://dft4lm1dirb3l" path="res://assets/models/tile.glb" id="3_4j4in"]
+[ext_resource type="PackedScene" uid="uid://cdq3pmj0sjg8i" path="res://assets/models/tile-slope.glb" id="4_yxq2h"]
+[ext_resource type="PackedScene" uid="uid://bmpjph8xkw26" path="res://assets/models/tile-tree-quad.glb" id="5_4j4in"]
+
+[node name="OuterTiles" type="Node3D" unique_id=291618533]
+
+[node name="tile-corner-inner2" parent="." unique_id=54468308 instance=ExtResource("1_p716q")]
+
+[node name="tile-corner-outer2" parent="." unique_id=1154601869 instance=ExtResource("2_yxq2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="tile2" parent="." unique_id=1640034420 instance=ExtResource("3_4j4in")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="tile-slope2" parent="." unique_id=633783095 instance=ExtResource("4_yxq2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="tile-tree-quad2" parent="." unique_id=852236206 instance=ExtResource("5_4j4in")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)

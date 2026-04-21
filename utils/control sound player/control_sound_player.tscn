@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c8ictadvbumsh"]
+
+[ext_resource type="Script" uid="uid://bbsknvklsyhtl" path="res://utils/control sound player/control_sound_player.gd" id="1_shpmn"]
+[ext_resource type="AudioStream" uid="uid://cekly5gfi1jpu" path="res://assets/sounds/ui/button_hovered.ogg" id="2_n1l4f"]
+[ext_resource type="AudioStream" uid="uid://bxptdjju1j5yp" path="res://assets/sounds/ui/button_pressed.ogg" id="3_hvm3n"]
+
+[node name="ControlSoundPlayer" type="Node" unique_id=1157000690]
+script = ExtResource("1_shpmn")
+
+[node name="ButtonHovered" type="AudioStreamPlayer" parent="." unique_id=1023602526]
+stream = ExtResource("2_n1l4f")
+
+[node name="ButtonPressed" type="AudioStreamPlayer" parent="." unique_id=1365514238]
+stream = ExtResource("3_hvm3n")

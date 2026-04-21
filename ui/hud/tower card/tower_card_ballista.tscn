@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://4vr5p11awg4b"]
+
+[ext_resource type="PackedScene" uid="uid://c57wfriy0yoiy" path="res://ui/hud/tower card/tower_card.tscn" id="1_kuga1"]
+[ext_resource type="PackedScene" uid="uid://cbxasskevr6hy" path="res://towers/ballista/ballista_tower.tscn" id="2_klyjf"]
+[ext_resource type="Texture2D" uid="uid://bragca362tnfi" path="res://assets/textures/tower previews/ballista_preview.png" id="4_klyjf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yh4n5"]
+resource_local_to_scene = true
+bg_color = Color(0.4993071, 0.00068894355, 0.604684, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="TowerCardBallista" unique_id=1759294685 instance=ExtResource("1_kuga1")]
+tower_scene = ExtResource("2_klyjf")
+
+[node name="IconBG" parent="VBoxContainer" parent_id_path=PackedInt32Array(1972322724) index="0" unique_id=1836855920]
+theme_override_styles/panel = SubResource("StyleBoxFlat_yh4n5")
+
+[node name="TowerIcon" parent="VBoxContainer/IconBG" index="0" unique_id=1845190333]
+texture = ExtResource("4_klyjf")
+
+[node name="NameLabel" parent="VBoxContainer" parent_id_path=PackedInt32Array(1972322724) index="1" unique_id=1651177660]
+text = "ballista"
+
+[node name="CostLabel" parent="VBoxContainer/Panel/HBoxContainer" parent_id_path=PackedInt32Array(353164597) index="1" unique_id=1740805584]
+text = "180"

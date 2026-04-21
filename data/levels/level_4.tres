@@ -1,0 +1,236 @@
+[gd_resource type="Resource" script_class="LevelInfo" format=3 uid="uid://c7ed00re6kk6s"]
+
+[ext_resource type="Script" uid="uid://d0kuope2xcils" path="res://data/levels/def/level_info.gd" id="1_u0yyn"]
+[ext_resource type="Script" uid="uid://bt73ecah3htfi" path="res://data/enemy wave/def/enemy_wave.gd" id="2_8e8kt"]
+[ext_resource type="Script" uid="uid://0q163imftcxt" path="res://data/levels/def/level_stats.gd" id="2_st11h"]
+[ext_resource type="Script" uid="uid://dp6g7n1iy4fe3" path="res://data/enemy wave/def/enemy_lane.gd" id="4_7n7i3"]
+[ext_resource type="Script" uid="uid://dkufswyjepk21" path="res://data/enemy wave/def/enemy_burst.gd" id="5_7coep"]
+[ext_resource type="PackedScene" uid="uid://cetesvltha6rj" path="res://enemies/basic/enemy_red.tscn" id="6_ivfl0"]
+[ext_resource type="PackedScene" uid="uid://dewlpotjw1fv3" path="res://enemies/basic/enemy_green.tscn" id="7_fc337"]
+[ext_resource type="PackedScene" uid="uid://cundxk8pl332k" path="res://enemies/basic/enemy_purple.tscn" id="8_yjt4j"]
+[ext_resource type="PackedScene" uid="uid://dxvy4gtycacqe" path="res://enemies/basic/enemy_purple_stripe.tscn" id="9_e8lv0"]
+
+[sub_resource type="Resource" id="Resource_sjy25"]
+script = ExtResource("2_st11h")
+metadata/_custom_type_script = "uid://0q163imftcxt"
+
+[sub_resource type="Resource" id="Resource_7n7i3"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("6_ivfl0")
+amount = 7
+interval = 3.0
+delay = 0.5
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_7coep"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("7_fc337")
+amount = 10
+interval = 5.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_ivfl0"]
+script = ExtResource("4_7n7i3")
+bursts = Array[ExtResource("5_7coep")]([SubResource("Resource_7n7i3"), SubResource("Resource_7coep")])
+metadata/_custom_type_script = "uid://dp6g7n1iy4fe3"
+
+[sub_resource type="Resource" id="Resource_fc337"]
+script = ExtResource("2_8e8kt")
+lanes = Array[ExtResource("4_7n7i3")]([SubResource("Resource_ivfl0")])
+metadata/_custom_type_script = "uid://bt73ecah3htfi"
+
+[sub_resource type="Resource" id="Resource_yjt4j"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("8_yjt4j")
+amount = 2
+interval = 5.0
+delay = 2.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_e8lv0"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("6_ivfl0")
+amount = 7
+interval = 3.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_iev53"]
+script = ExtResource("4_7n7i3")
+bursts = Array[ExtResource("5_7coep")]([SubResource("Resource_yjt4j"), SubResource("Resource_e8lv0")])
+metadata/_custom_type_script = "uid://dp6g7n1iy4fe3"
+
+[sub_resource type="Resource" id="Resource_qkeoi"]
+script = ExtResource("2_8e8kt")
+lanes = Array[ExtResource("4_7n7i3")]([SubResource("Resource_iev53")])
+metadata/_custom_type_script = "uid://bt73ecah3htfi"
+
+[sub_resource type="Resource" id="Resource_tmkra"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("6_ivfl0")
+amount = 10
+interval = 3.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_2srwy"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("7_fc337")
+amount = 15
+interval = 4.0
+delay = 0.5
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_rjdur"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("9_e8lv0")
+amount = 6
+interval = 0.4
+delay = 1.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_svnga"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("9_e8lv0")
+amount = 6
+interval = 0.4
+delay = 7.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_7603e"]
+script = ExtResource("4_7n7i3")
+bursts = Array[ExtResource("5_7coep")]([SubResource("Resource_tmkra"), SubResource("Resource_2srwy"), SubResource("Resource_rjdur"), SubResource("Resource_svnga")])
+metadata/_custom_type_script = "uid://dp6g7n1iy4fe3"
+
+[sub_resource type="Resource" id="Resource_83qq5"]
+script = ExtResource("2_8e8kt")
+lanes = Array[ExtResource("4_7n7i3")]([SubResource("Resource_7603e")])
+metadata/_custom_type_script = "uid://bt73ecah3htfi"
+
+[sub_resource type="Resource" id="Resource_bx74o"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("7_fc337")
+amount = 20
+interval = 4.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_me5ya"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("8_yjt4j")
+amount = 4
+interval = 5.0
+delay = 1.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_jt6k6"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("9_e8lv0")
+amount = 6
+interval = 0.4
+delay = 4.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_jl54e"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("9_e8lv0")
+amount = 6
+interval = 0.4
+delay = 12.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_ge8ev"]
+script = ExtResource("4_7n7i3")
+bursts = Array[ExtResource("5_7coep")]([SubResource("Resource_bx74o"), SubResource("Resource_me5ya"), SubResource("Resource_jt6k6"), SubResource("Resource_jl54e")])
+metadata/_custom_type_script = "uid://dp6g7n1iy4fe3"
+
+[sub_resource type="Resource" id="Resource_uo1ra"]
+script = ExtResource("2_8e8kt")
+lanes = Array[ExtResource("4_7n7i3")]([SubResource("Resource_ge8ev")])
+metadata/_custom_type_script = "uid://bt73ecah3htfi"
+
+[sub_resource type="Resource" id="Resource_s2s4m"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("6_ivfl0")
+amount = 10
+interval = 3.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_ihxpt"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("8_yjt4j")
+amount = 2
+interval = 5.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_go23h"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("9_e8lv0")
+amount = 15
+interval = 0.4
+delay = 1.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_uu230"]
+script = ExtResource("4_7n7i3")
+bursts = Array[ExtResource("5_7coep")]([SubResource("Resource_s2s4m"), SubResource("Resource_ihxpt"), SubResource("Resource_go23h")])
+metadata/_custom_type_script = "uid://dp6g7n1iy4fe3"
+
+[sub_resource type="Resource" id="Resource_7xb4i"]
+script = ExtResource("2_8e8kt")
+lanes = Array[ExtResource("4_7n7i3")]([SubResource("Resource_uu230")])
+metadata/_custom_type_script = "uid://bt73ecah3htfi"
+
+[sub_resource type="Resource" id="Resource_0aiht"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("7_fc337")
+amount = 25
+interval = 4.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_loijm"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("6_ivfl0")
+amount = 10
+interval = 3.0
+delay = 1.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_exr1m"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("8_yjt4j")
+interval = 5.0
+delay = 1.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_tc3k5"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("9_e8lv0")
+amount = 6
+interval = 0.4
+delay = 3.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_fo5or"]
+script = ExtResource("5_7coep")
+enemy = ExtResource("9_e8lv0")
+amount = 6
+interval = 0.4
+delay = 12.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_n6ols"]
+script = ExtResource("4_7n7i3")
+bursts = Array[ExtResource("5_7coep")]([SubResource("Resource_0aiht"), SubResource("Resource_loijm"), SubResource("Resource_exr1m"), SubResource("Resource_tc3k5"), SubResource("Resource_fo5or")])
+metadata/_custom_type_script = "uid://dp6g7n1iy4fe3"
+
+[sub_resource type="Resource" id="Resource_kk42i"]
+script = ExtResource("2_8e8kt")
+lanes = Array[ExtResource("4_7n7i3")]([SubResource("Resource_n6ols")])
+metadata/_custom_type_script = "uid://bt73ecah3htfi"
+
+[resource]
+script = ExtResource("1_u0yyn")
+number = 4
+title = "The U-Loop"
+scene = "uid://c0y7driuoav73"
+stats = SubResource("Resource_sjy25")
+waves = Array[ExtResource("2_8e8kt")]([SubResource("Resource_fc337"), SubResource("Resource_qkeoi"), SubResource("Resource_83qq5"), SubResource("Resource_uo1ra"), SubResource("Resource_7xb4i"), SubResource("Resource_kk42i")])
+metadata/_custom_type_script = "uid://d0kuope2xcils"

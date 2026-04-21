@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dxvy4gtycacqe"]
+
+[ext_resource type="PackedScene" uid="uid://cuwhi7u1wh0bj" path="res://enemies/enemy.tscn" id="1_npxhx"]
+[ext_resource type="ArrayMesh" uid="uid://dmht1d3ryk1w5" path="res://enemies/basic/enemy_purple_stripe.res" id="2_or22s"]
+[ext_resource type="Resource" uid="uid://chxnrxkvebcdb" path="res://data/info/enemies/enemy_purple_stripe.tres" id="2_ypqh8"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ago1t"]
+points = PackedVector3Array(0, 0.13433641, -0.5, 0, 0.18180676, -0.5, 0.2510867, 0.13433641, -0.4330462, 0, 0, -0.26673844, -0.1339981, 0, -0.23101017, -0.25108668, 0.13433641, -0.4330462, 0, 0.50057286, -0.10649961, 0.2510867, 0.18180676, -0.4330462, -0.25108668, 0.18180676, -0.4330462, 0.43483025, 0.13433641, -0.25, 0.23191601, 0, -0.13341817, 0.13389981, 0, -0.23101017, -0.23201433, 0, -0.13341817, -0.43492854, 0.13433641, -0.25, 0, 0.5254138, 0, 0.07520807, 0.50057286, -0.07537195, -0.075306326, 0.50057286, -0.07537195, 0.43483025, 0.18180676, -0.25, -0.43492854, 0.18180676, -0.25, 0.50217336, 0.13433641, 0, 0.26779962, 0, 0, -0.2678979, 0, 0, -0.50217336, 0.13433641, 0, -0.10647097, 0.50057286, 0, -0.075306326, 0.50057286, 0.07527411, 0, 0.50057286, 0.10640174, 0.07520807, 0.50057286, 0.07527411, 0.106372654, 0.50057286, 0, 0.50217336, 0.18180676, 0, -0.50217336, 0.18180676, 0, 0.43483025, 0.13433641, 0.25, 0.23191601, 0, 0.13332027, -0.23201433, 0, 0.13332027, -0.43492854, 0.13433641, 0.25, -0.43492854, 0.18180676, 0.25, -0.25108668, 0.18180676, 0.4329483, 0, 0.18180676, 0.5, 0.2510867, 0.18180676, 0.4329483, 0.43483025, 0.18180676, 0.25, 0.2510867, 0.13433641, 0.4329483, 0.13389981, 0, 0.23091227, -0.1339981, 0, 0.23091227, -0.25108668, 0.13433641, 0.4329483, 0, 0.13433641, 0.5, 0, 0, 0.26664054)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_or22s"]
+viewport_path = NodePath("HealthBarMesh/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ypqh8"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_or22s")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_eujjk"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_ypqh8")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bsu3d"]
+resource_local_to_scene = true
+bg_color = Color(0, 0.87058824, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[node name="EnemyPurpleStripe" unique_id=2072180577 instance=ExtResource("1_npxhx")]
+info = ExtResource("2_ypqh8")
+
+[node name="MeshInstance3D" parent="." index="0" unique_id=298161450]
+mesh = ExtResource("2_or22s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=1445660744]
+shape = SubResource("ConvexPolygonShape3D_ago1t")
+
+[node name="HealthBarMesh" parent="." index="2" unique_id=1424357792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6519658, 0)
+mesh = SubResource("QuadMesh_eujjk")
+
+[node name="EnemyHealthBar" parent="HealthBarMesh/SubViewport" parent_id_path=PackedInt32Array(1678385506) index="0" unique_id=1015665068]
+theme_override_styles/fill = SubResource("StyleBoxFlat_bsu3d")

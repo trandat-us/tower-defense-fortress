@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://qcg3j2ck0dkt"]
+
+[ext_resource type="PackedScene" uid="uid://gba1513gwf3x" path="res://towers/tower_projectile.tscn" id="1_j4bc4"]
+[ext_resource type="Script" uid="uid://do5iijuhh1q05" path="res://towers/catapult/boulder/catapult_boulder.gd" id="1_l2fs4"]
+[ext_resource type="ArrayMesh" uid="uid://cof5cnse357ir" path="res://towers/catapult/boulder/catapult_boulder.res" id="2_l2fs4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_l2fs4"]
+radius = 0.15
+
+[node name="CatapultBoulder" unique_id=1414386224 instance=ExtResource("1_j4bc4")]
+script = ExtResource("1_l2fs4")
+peak_height = 1.0
+speed = 5.0
+
+[node name="ProjectileMesh" parent="." index="0" unique_id=863103909]
+mesh = ExtResource("2_l2fs4")
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=547873563]
+shape = SubResource("SphereShape3D_l2fs4")

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cetesvltha6rj"]
+
+[ext_resource type="PackedScene" uid="uid://cuwhi7u1wh0bj" path="res://enemies/enemy.tscn" id="1_lkjpk"]
+[ext_resource type="ArrayMesh" uid="uid://dfyh1v7dndfro" path="res://enemies/basic/enemy_red.res" id="2_dx5yl"]
+[ext_resource type="Resource" uid="uid://dn2qog2hnjp8e" path="res://data/info/enemies/enemy_red.tres" id="2_lcd2m"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lcd2m"]
+points = PackedVector3Array(0, 0.09999931, -0.5, 0, 0.19999862, -0.5, 0.25, 0.09999931, -0.4330462, 0, 0, -0.40005875, -0.25, 0.09999931, -0.4330462, -0.25, 0.19999862, -0.4330462, -0.100039154, 0.29999793, -0.44655442, 0.09994125, 0.29999793, -0.44655442, 0.25, 0.19999862, -0.4330462, 0.4329483, 0.09999931, -0.25, 0.3463195, 0, -0.20007831, 0.19998044, 0, -0.34641737, -0.20007831, 0, -0.34641737, -0.4330462, 0.09999931, -0.25, -0.4330462, 0.19999862, -0.25, -0.14350039, 0.56077915, -0.14350039, -0.100039154, 0.32494798, -0.42149568, 0, 0.6465118, -0.11716914, 0, 0.56077915, -0.20291698, 0.09994125, 0.32494798, -0.42149568, 0.4329483, 0.19999862, -0.25, 0.14340252, 0.56077915, -0.14350039, 0.5, 0.09999931, 0, 0.39996088, 0, 0, -0.34641737, 0, -0.20007831, -0.5, 0.09999931, 0, -0.40005875, 0, 0, -0.5, 0.19999862, 0, -0.44655442, 0.29999793, -0.100039154, -0.42149568, 0.32494798, -0.100039154, -0.082811266, 0.6465118, -0.082811266, 0, 0.67789847, 0, 0.082713366, 0.6465118, -0.082811266, 0.4213978, 0.32494798, -0.100039154, 0.44645655, 0.29999793, -0.100039154, 0.5, 0.19999862, 0, 0.4329483, 0.09999931, 0.25, 0.3463195, 0, 0.19998044, -0.4330462, 0.09999931, 0.25, -0.34641737, 0, 0.19998044, -0.4330462, 0.19999862, 0.25, -0.44655442, 0.29999793, 0.09994125, -0.20291698, 0.56077915, 0, -0.11716914, 0.6465118, 0, -0.082811266, 0.6465118, 0.082713366, 0, 0.6465118, 0.11707127, 0.082713366, 0.6465118, 0.082713366, 0.11707127, 0.6465118, 0, 0.44645655, 0.29999793, 0.09994125, 0.20281911, 0.56077915, 0, 0.4329483, 0.19999862, 0.25, 0.25, 0.09999931, 0.4329483, 0.19998044, 0, 0.3463195, -0.20007831, 0, 0.3463195, -0.25, 0.09999931, 0.4329483, -0.42149568, 0.32494798, 0.09994125, -0.25, 0.19999862, 0.4329483, -0.14350039, 0.56077915, 0.14340252, -0.100039154, 0.32494798, 0.4213978, 0, 0.56077915, 0.20281911, 0.09994125, 0.29999793, 0.44645655, 0.09994125, 0.32494798, 0.4213978, -0.100039154, 0.29999793, 0.44645655, 0.14340252, 0.56077915, 0.14340252, 0.4213978, 0.32494798, 0.09994125, 0.25, 0.19999862, 0.4329483, 0, 0.09999931, 0.5, 0, 0, 0.39996088, 0, 0.19999862, 0.5)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lcd2m"]
+viewport_path = NodePath("HealthBarMesh/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_84qxq"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_lcd2m")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_otdpv"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_84qxq")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsly3"]
+resource_local_to_scene = true
+bg_color = Color(0, 0.87058824, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[node name="EnemyRed" unique_id=212207087 instance=ExtResource("1_lkjpk")]
+info = ExtResource("2_lcd2m")
+
+[node name="MeshInstance3D" parent="." index="0" unique_id=298161450]
+mesh = ExtResource("2_dx5yl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=1844887465]
+shape = SubResource("ConvexPolygonShape3D_lcd2m")
+
+[node name="HealthBarMesh" parent="." index="2" unique_id=1424357792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+mesh = SubResource("QuadMesh_otdpv")
+
+[node name="EnemyHealthBar" parent="HealthBarMesh/SubViewport" parent_id_path=PackedInt32Array(1678385506) index="0" unique_id=1015665068]
+theme_override_styles/fill = SubResource("StyleBoxFlat_wsly3")

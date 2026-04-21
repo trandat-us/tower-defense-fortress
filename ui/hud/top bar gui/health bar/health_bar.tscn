@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://c3esorqteqnny"]
+
+[ext_resource type="Script" uid="uid://3kfi0mpvxssh" path="res://ui/hud/top bar gui/health bar/health_bar.gd" id="1_22g1q"]
+[ext_resource type="Texture2D" uid="uid://btcd7lqlghcto" path="res://assets/textures/icons/heart.png" id="2_8cs4q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0wdy"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cs4q"]
+bg_color = Color(0.99999994, 0.174173, 0.12721539, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_22g1q"]
+
+[node name="HealthBar" type="ProgressBar" unique_id=628474832]
+custom_minimum_size = Vector2(108, 24)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -12.0
+offset_right = 50.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_n0wdy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8cs4q")
+max_value = 20.0
+step = 1.0
+value = 10.0
+show_percentage = false
+script = ExtResource("1_22g1q")
+
+[node name="HeartIcon" type="TextureRect" parent="." unique_id=1295732818]
+material = SubResource("ShaderMaterial_22g1q")
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -26.0
+offset_right = 20.0
+offset_bottom = 26.0
+grow_vertical = 2
+texture = ExtResource("2_8cs4q")
+expand_mode = 2
+
+[node name="HealthLabel" type="Label" parent="." unique_id=86171527]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -10.75
+offset_right = 27.5
+offset_bottom = 10.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "10 / 20"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,437 @@
+[gd_resource type="Resource" script_class="LevelInfo" format=3 uid="uid://rbn7tompes2y"]
+
+[ext_resource type="Script" uid="uid://d0kuope2xcils" path="res://data/levels/def/level_info.gd" id="1_hkfdj"]
+[ext_resource type="Script" uid="uid://0q163imftcxt" path="res://data/levels/def/level_stats.gd" id="2_3m3tp"]
+[ext_resource type="Script" uid="uid://bt73ecah3htfi" path="res://data/enemy wave/def/enemy_wave.gd" id="2_lk6lq"]
+[ext_resource type="Script" uid="uid://dp6g7n1iy4fe3" path="res://data/enemy wave/def/enemy_lane.gd" id="4_uivda"]
+[ext_resource type="Script" uid="uid://dkufswyjepk21" path="res://data/enemy wave/def/enemy_burst.gd" id="5_cmciu"]
+[ext_resource type="PackedScene" uid="uid://cetesvltha6rj" path="res://enemies/basic/enemy_red.tscn" id="6_74d4u"]
+[ext_resource type="PackedScene" uid="uid://dewlpotjw1fv3" path="res://enemies/basic/enemy_green.tscn" id="7_ksgk8"]
+[ext_resource type="PackedScene" uid="uid://cundxk8pl332k" path="res://enemies/basic/enemy_purple.tscn" id="8_5jdur"]
+[ext_resource type="PackedScene" uid="uid://dxvy4gtycacqe" path="res://enemies/basic/enemy_purple_stripe.tscn" id="9_5044g"]
+[ext_resource type="PackedScene" uid="uid://cuwhi7u1wh0bj" path="res://enemies/enemy.tscn" id="10_n4j77"]
+[ext_resource type="Resource" uid="uid://dmu31xe6tlp4j" path="res://data/info/enemies/enemy_green.tres" id="11_rbwpw"]
+[ext_resource type="ArrayMesh" uid="uid://rfbaqa4i0w1j" path="res://enemies/basic/enemy_green.res" id="12_yuycs"]
+[ext_resource type="Resource" uid="uid://chxnrxkvebcdb" path="res://data/info/enemies/enemy_purple_stripe.tres" id="17_32f38"]
+[ext_resource type="ArrayMesh" uid="uid://dmht1d3ryk1w5" path="res://enemies/basic/enemy_purple_stripe.res" id="18_xrkgn"]
+
+[sub_resource type="Resource" id="Resource_vxq3o"]
+script = ExtResource("2_3m3tp")
+max_towers = 6
+initial_golds = 300
+metadata/_custom_type_script = "uid://0q163imftcxt"
+
+[sub_resource type="Resource" id="Resource_uivda"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("6_74d4u")
+amount = 7
+interval = 4.0
+delay = 0.5
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_cmciu"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("7_ksgk8")
+amount = 10
+interval = 3.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_74d4u"]
+script = ExtResource("4_uivda")
+bursts = Array[ExtResource("5_cmciu")]([SubResource("Resource_uivda"), SubResource("Resource_cmciu")])
+metadata/_custom_type_script = "uid://dp6g7n1iy4fe3"
+
+[sub_resource type="Resource" id="Resource_ksgk8"]
+script = ExtResource("2_lk6lq")
+lanes = Array[ExtResource("4_uivda")]([SubResource("Resource_74d4u")])
+metadata/_custom_type_script = "uid://bt73ecah3htfi"
+
+[sub_resource type="Resource" id="Resource_5jdur"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("8_5jdur")
+amount = 2
+interval = 5.0
+delay = 2.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_5044g"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("6_74d4u")
+amount = 7
+interval = 3.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_ph5j4"]
+script = ExtResource("4_uivda")
+path_index = 1
+bursts = Array[ExtResource("5_cmciu")]([SubResource("Resource_5jdur"), SubResource("Resource_5044g")])
+metadata/_custom_type_script = "uid://dp6g7n1iy4fe3"
+
+[sub_resource type="Resource" id="Resource_wi08m"]
+script = ExtResource("2_lk6lq")
+lanes = Array[ExtResource("4_uivda")]([SubResource("Resource_ph5j4")])
+metadata/_custom_type_script = "uid://bt73ecah3htfi"
+
+[sub_resource type="Resource" id="Resource_pcgxx"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("6_74d4u")
+amount = 10
+interval = 4.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ago1t"]
+points = PackedVector3Array(0, 0.13433641, -0.5, 0, 0.18180676, -0.5, 0.2510867, 0.13433641, -0.4330462, 0, 0, -0.26673844, -0.1339981, 0, -0.23101017, -0.25108668, 0.13433641, -0.4330462, 0, 0.50057286, -0.10649961, 0.2510867, 0.18180676, -0.4330462, -0.25108668, 0.18180676, -0.4330462, 0.43483025, 0.13433641, -0.25, 0.23191601, 0, -0.13341817, 0.13389981, 0, -0.23101017, -0.23201433, 0, -0.13341817, -0.43492854, 0.13433641, -0.25, 0, 0.5254138, 0, 0.07520807, 0.50057286, -0.07537195, -0.075306326, 0.50057286, -0.07537195, 0.43483025, 0.18180676, -0.25, -0.43492854, 0.18180676, -0.25, 0.50217336, 0.13433641, 0, 0.26779962, 0, 0, -0.2678979, 0, 0, -0.50217336, 0.13433641, 0, -0.10647097, 0.50057286, 0, -0.075306326, 0.50057286, 0.07527411, 0, 0.50057286, 0.10640174, 0.07520807, 0.50057286, 0.07527411, 0.106372654, 0.50057286, 0, 0.50217336, 0.18180676, 0, -0.50217336, 0.18180676, 0, 0.43483025, 0.13433641, 0.25, 0.23191601, 0, 0.13332027, -0.23201433, 0, 0.13332027, -0.43492854, 0.13433641, 0.25, -0.43492854, 0.18180676, 0.25, -0.25108668, 0.18180676, 0.4329483, 0, 0.18180676, 0.5, 0.2510867, 0.18180676, 0.4329483, 0.43483025, 0.18180676, 0.25, 0.2510867, 0.13433641, 0.4329483, 0.13389981, 0, 0.23091227, -0.1339981, 0, 0.23091227, -0.25108668, 0.13433641, 0.4329483, 0, 0.13433641, 0.5, 0, 0, 0.26664054)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_npxhx"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_or22s"]
+resource_local_to_scene = true
+bg_color = Color(0, 0.87058824, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="PackedScene" id="PackedScene_n4j77"]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(1441142088)],
+"names": PackedStringArray("EnemyPurpleStripe", "info", "MeshInstance3D", "mesh", "CollisionShape3D", "CollisionShape3D", "shape", "Sprite3D", "transform", "texture", "EnemyHealthBar", "theme_override_styles/fill"),
+"node_count": 5,
+"node_ids": PackedInt32Array(2072180577, 298161450, 1445660744, 1328457034, 2116533297),
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("./SubViewport")],
+"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 1, 1, 1, 0, 1073741824, -1, 2147483647, 262146, -1, 1, 3, 2, 0, 1073741825, 0, 5, 524292, -1, 1, 6, 3, 0, 1073741826, -1, 2147483647, 786439, -1, 2, 8, 4, 9, 5, 0, 1073741827, -1, 2147483647, 262154, -1, 1, 11, 6, 0),
+"variants": [ExtResource("10_n4j77"), ExtResource("17_32f38"), ExtResource("18_xrkgn"), SubResource("ConvexPolygonShape3D_ago1t"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6771756, 0), SubResource("ViewportTexture_npxhx"), SubResource("StyleBoxFlat_or22s")],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_yuycs"]
+script = ExtResource("5_cmciu")
+enemy = SubResource("PackedScene_n4j77")
+amount = 6
+interval = 0.4
+delay = 12.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_77hhb"]
+script = ExtResource("4_uivda")
+bursts = Array[ExtResource("5_cmciu")]([SubResource("Resource_pcgxx"), SubResource("Resource_yuycs")])
+metadata/_custom_type_script = "uid://dp6g7n1iy4fe3"
+
+[sub_resource type="Resource" id="Resource_rbwpw"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("9_5044g")
+amount = 6
+interval = 0.4
+delay = 1.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hjkyr"]
+points = PackedVector3Array(0.49967507, 0.17781729, 0, 0.30784598, 0, 0.17785823, 0.35548535, 0, 0, 0.30784598, 0, -0.17795613, 0.43266693, 0.17781729, -0.25, 0.31870428, 0.3383992, -0.24814019, 0.18419895, 0.4828159, 0, 0.31870428, 0.3383992, 0.24804229, 0.43266693, 0.17781729, 0.25, 0.17774269, 0, 0.30804622, 0.17774269, 0, -0.3081441, 0.24983755, 0.17781729, -0.4330462, 0.2479789, 0.3383992, -0.31881362, 0.075225204, 0.5505746, -0.07537195, 0.10633257, 0.5505746, 0, 0.075225204, 0.5505746, 0.07527411, 0.2479789, 0.3383992, 0.31871575, 0.24983755, 0.17781729, 0.4329483, 2.9802322e-08, 0.17781729, 0.5, 2.9802322e-08, 0, 0.35571653, 2.9802322e-08, 0, -0.3558144, 2.9802322e-08, 0.17781729, -0.5, 2.9802322e-08, 0.4828159, -0.18441659, 2.9802322e-08, 0.5505746, -0.10649961, 2.9802322e-08, 0.5754138, 0, 2.9802322e-08, 0.5505746, 0.10640174, 2.9802322e-08, 0.4828159, 0.18431872, -0.2480767, 0.3383992, 0.31871575, -0.24983749, 0.17781729, 0.4329483, -0.17784047, 0, 0.30804622, -0.24983749, 0.17781729, -0.4330462, -0.17784047, 0, -0.3081441, -0.2480767, 0.3383992, -0.31881362, -0.075322956, 0.5505746, -0.07537195, -0.075322956, 0.5505746, 0.07527411, -0.10643038, 0.5505746, 0, -0.31880206, 0.3383992, 0.24804229, -0.4327647, 0.17781729, 0.25, -0.3079438, 0, 0.17785823, -0.4327647, 0.17781729, -0.25, -0.31880206, 0.3383992, -0.24814019, -0.3079438, 0, -0.17795613, -0.18429673, 0.4828159, 0, -0.499675, 0.17781729, 0, -0.35558313, 0, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_05uaa"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjkyr"]
+resource_local_to_scene = true
+bg_color = Color(0, 0.87058824, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="PackedScene" id="PackedScene_rbwpw"]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(1441142088)],
+"names": PackedStringArray("EnemyGreen", "info", "MeshInstance3D", "mesh", "CollisionShape3D", "CollisionShape3D", "shape", "Sprite3D", "transform", "texture", "EnemyHealthBar", "theme_override_styles/fill"),
+"node_count": 5,
+"node_ids": PackedInt32Array(212207087, 298161450, 1024874185, 1328457034, 2116533297),
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("./SubViewport")],
+"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 1, 1, 1, 0, 1073741824, -1, 2147483647, 262146, -1, 1, 3, 2, 0, 1073741825, 0, 5, 524292, -1, 1, 6, 3, 0, 1073741826, -1, 2147483647, 786439, -1, 2, 8, 4, 9, 5, 0, 1073741827, -1, 2147483647, 262154, -1, 1, 11, 6, 0),
+"variants": [ExtResource("10_n4j77"), ExtResource("11_rbwpw"), ExtResource("12_yuycs"), SubResource("ConvexPolygonShape3D_hjkyr"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0), SubResource("ViewportTexture_05uaa"), SubResource("StyleBoxFlat_hjkyr")],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_tnl2p"]
+script = ExtResource("5_cmciu")
+enemy = SubResource("PackedScene_rbwpw")
+amount = 15
+interval = 3.0
+delay = 0.5
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_rtlyq"]
+script = ExtResource("4_uivda")
+path_index = 1
+bursts = Array[ExtResource("5_cmciu")]([SubResource("Resource_rbwpw"), SubResource("Resource_tnl2p")])
+metadata/_custom_type_script = "uid://dp6g7n1iy4fe3"
+
+[sub_resource type="Resource" id="Resource_51j1r"]
+script = ExtResource("2_lk6lq")
+lanes = Array[ExtResource("4_uivda")]([SubResource("Resource_77hhb"), SubResource("Resource_rtlyq")])
+metadata/_custom_type_script = "uid://bt73ecah3htfi"
+
+[sub_resource type="Resource" id="Resource_bx74o"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("7_ksgk8")
+amount = 20
+interval = 4.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_me5ya"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("8_5jdur")
+amount = 4
+interval = 5.0
+delay = 1.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_jt6k6"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("9_5044g")
+amount = 6
+interval = 0.4
+delay = 4.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_jl54e"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("9_5044g")
+amount = 6
+interval = 0.4
+delay = 12.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_ge8ev"]
+script = ExtResource("4_uivda")
+bursts = Array[ExtResource("5_cmciu")]([SubResource("Resource_bx74o"), SubResource("Resource_me5ya"), SubResource("Resource_jt6k6"), SubResource("Resource_jl54e")])
+metadata/_custom_type_script = "uid://dp6g7n1iy4fe3"
+
+[sub_resource type="Resource" id="Resource_jhbf5"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("6_74d4u")
+amount = 15
+interval = 3.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_4gorx"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("8_5jdur")
+amount = 3
+interval = 5.0
+delay = 1.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_n4j77"]
+script = ExtResource("4_uivda")
+path_index = 1
+bursts = Array[ExtResource("5_cmciu")]([SubResource("Resource_jhbf5"), SubResource("Resource_4gorx")])
+metadata/_custom_type_script = "uid://dp6g7n1iy4fe3"
+
+[sub_resource type="Resource" id="Resource_uo1ra"]
+script = ExtResource("2_lk6lq")
+lanes = Array[ExtResource("4_uivda")]([SubResource("Resource_ge8ev"), SubResource("Resource_n4j77")])
+metadata/_custom_type_script = "uid://bt73ecah3htfi"
+
+[sub_resource type="Resource" id="Resource_klv5e"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("6_74d4u")
+amount = 10
+interval = 4.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_32f38"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("8_5jdur")
+interval = 5.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_xrkgn"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("9_5044g")
+amount = 6
+interval = 0.4
+delay = 1.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="PackedScene" id="PackedScene_yuycs"]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(1441142088)],
+"names": PackedStringArray("EnemyPurpleStripe", "info", "MeshInstance3D", "mesh", "CollisionShape3D", "CollisionShape3D", "shape", "Sprite3D", "transform", "texture", "EnemyHealthBar", "theme_override_styles/fill"),
+"node_count": 5,
+"node_ids": PackedInt32Array(2072180577, 298161450, 1445660744, 1328457034, 2116533297),
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("./SubViewport")],
+"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 1, 1, 1, 0, 1073741824, -1, 2147483647, 262146, -1, 1, 3, 2, 0, 1073741825, 0, 5, 524292, -1, 1, 6, 3, 0, 1073741826, -1, 2147483647, 786439, -1, 2, 8, 4, 9, 5, 0, 1073741827, -1, 2147483647, 262154, -1, 1, 11, 6, 0),
+"variants": [ExtResource("10_n4j77"), ExtResource("17_32f38"), ExtResource("18_xrkgn"), SubResource("ConvexPolygonShape3D_ago1t"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6771756, 0), SubResource("ViewportTexture_npxhx"), SubResource("StyleBoxFlat_or22s")],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_i0ynw"]
+script = ExtResource("5_cmciu")
+enemy = SubResource("PackedScene_yuycs")
+amount = 6
+interval = 0.4
+delay = 8.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_rnisq"]
+script = ExtResource("4_uivda")
+bursts = Array[ExtResource("5_cmciu")]([SubResource("Resource_klv5e"), SubResource("Resource_32f38"), SubResource("Resource_xrkgn"), SubResource("Resource_i0ynw")])
+metadata/_custom_type_script = "uid://dp6g7n1iy4fe3"
+
+[sub_resource type="Resource" id="Resource_yjdx7"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("7_ksgk8")
+amount = 20
+interval = 3.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_ytjun"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("6_74d4u")
+amount = 10
+interval = 4.0
+delay = 1.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_fjmdr"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("9_5044g")
+amount = 6
+interval = 0.4
+delay = 2.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_vqe6e"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("8_5jdur")
+amount = 3
+interval = 5.0
+delay = 1.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_jxlup"]
+script = ExtResource("4_uivda")
+path_index = 1
+bursts = Array[ExtResource("5_cmciu")]([SubResource("Resource_yjdx7"), SubResource("Resource_ytjun"), SubResource("Resource_fjmdr"), SubResource("Resource_vqe6e")])
+metadata/_custom_type_script = "uid://dp6g7n1iy4fe3"
+
+[sub_resource type="Resource" id="Resource_u6n77"]
+script = ExtResource("2_lk6lq")
+lanes = Array[ExtResource("4_uivda")]([SubResource("Resource_rnisq"), SubResource("Resource_jxlup")])
+metadata/_custom_type_script = "uid://bt73ecah3htfi"
+
+[sub_resource type="Resource" id="Resource_0aiht"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("7_ksgk8")
+amount = 25
+interval = 3.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_loijm"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("6_74d4u")
+amount = 15
+interval = 4.0
+delay = 1.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_exr1m"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("8_5jdur")
+amount = 7
+interval = 5.0
+delay = 1.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_tc3k5"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("9_5044g")
+amount = 8
+interval = 0.4
+delay = 3.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_fo5or"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("9_5044g")
+amount = 8
+interval = 0.4
+delay = 12.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_n6ols"]
+script = ExtResource("4_uivda")
+bursts = Array[ExtResource("5_cmciu")]([SubResource("Resource_0aiht"), SubResource("Resource_loijm"), SubResource("Resource_exr1m"), SubResource("Resource_tc3k5"), SubResource("Resource_fo5or")])
+metadata/_custom_type_script = "uid://dp6g7n1iy4fe3"
+
+[sub_resource type="Resource" id="Resource_pfbjv"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("7_ksgk8")
+amount = 25
+interval = 3.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_8u4j8"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("6_74d4u")
+amount = 10
+interval = 4.0
+delay = 1.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_oqsla"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("8_5jdur")
+amount = 7
+interval = 5.0
+delay = 1.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_bpndh"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("9_5044g")
+amount = 8
+interval = 0.4
+delay = 3.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_ijg6l"]
+script = ExtResource("5_cmciu")
+enemy = ExtResource("9_5044g")
+amount = 8
+interval = 0.4
+delay = 12.0
+metadata/_custom_type_script = "uid://dkufswyjepk21"
+
+[sub_resource type="Resource" id="Resource_mfran"]
+script = ExtResource("4_uivda")
+path_index = 1
+bursts = Array[ExtResource("5_cmciu")]([SubResource("Resource_pfbjv"), SubResource("Resource_8u4j8"), SubResource("Resource_oqsla"), SubResource("Resource_bpndh"), SubResource("Resource_ijg6l")])
+metadata/_custom_type_script = "uid://dp6g7n1iy4fe3"
+
+[sub_resource type="Resource" id="Resource_kk42i"]
+script = ExtResource("2_lk6lq")
+lanes = Array[ExtResource("4_uivda")]([SubResource("Resource_n6ols"), SubResource("Resource_mfran")])
+metadata/_custom_type_script = "uid://bt73ecah3htfi"
+
+[resource]
+script = ExtResource("1_hkfdj")
+number = 5
+title = "The Crossroads"
+scene = "uid://jrw5qtrgtjx1"
+stats = SubResource("Resource_vxq3o")
+waves = Array[ExtResource("2_lk6lq")]([SubResource("Resource_ksgk8"), SubResource("Resource_wi08m"), SubResource("Resource_51j1r"), SubResource("Resource_uo1ra"), SubResource("Resource_u6n77"), SubResource("Resource_kk42i")])
+metadata/_custom_type_script = "uid://d0kuope2xcils"

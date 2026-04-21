@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://d3pt458rhfwum"]
+
+[ext_resource type="PackedScene" uid="uid://becogs4jky08" path="res://assets/models/tile-straight.glb" id="1_w5vja"]
+[ext_resource type="PackedScene" uid="uid://det65vmek208c" path="res://assets/models/tile-straight-slope.glb" id="2_qnq74"]
+[ext_resource type="PackedScene" uid="uid://tc158xlpb214" path="res://assets/models/tile-corner-square.glb" id="3_5iid6"]
+[ext_resource type="PackedScene" uid="uid://cs1mb5hi3wqwn" path="res://assets/models/tile-corner-round.glb" id="4_amshw"]
+[ext_resource type="PackedScene" uid="uid://rteuyw3epixc" path="res://assets/models/tile-bump.glb" id="5_vhcyw"]
+[ext_resource type="PackedScene" uid="uid://dq5gu0fb50tg5" path="res://assets/models/tile-crossing.glb" id="6_sgo0x"]
+[ext_resource type="PackedScene" uid="uid://drnema6tt6imp" path="res://assets/models/tile-dirt.glb" id="7_8ltrc"]
+[ext_resource type="PackedScene" uid="uid://dja4tbbl16cf6" path="res://assets/models/tile-end-round.glb" id="8_jicck"]
+[ext_resource type="PackedScene" uid="uid://62135ircpxt3" path="res://assets/models/tile-end.glb" id="9_lu6ry"]
+[ext_resource type="PackedScene" uid="uid://dj3nhele76e05" path="res://assets/models/tile-spawn-end-round.glb" id="10_22sr4"]
+[ext_resource type="PackedScene" uid="uid://dshhuvm247y7u" path="res://assets/models/tile-spawn-end.glb" id="11_m1fcx"]
+[ext_resource type="PackedScene" uid="uid://c7k3qu8jtmqco" path="res://assets/models/tile-spawn-round.glb" id="12_pne7w"]
+[ext_resource type="PackedScene" uid="uid://bh2mifop7nhcy" path="res://assets/models/tile-spawn.glb" id="13_2r3om"]
+[ext_resource type="PackedScene" uid="uid://dxmpsip8e4nmx" path="res://assets/models/tile-split.glb" id="14_npmen"]
+
+[node name="PathMeshlib" type="Node3D" unique_id=1740149368]
+
+[node name="tile-straight2" parent="." unique_id=1684401790 instance=ExtResource("1_w5vja")]
+
+[node name="tile-straight-slope2" parent="." unique_id=404219066 instance=ExtResource("2_qnq74")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="tile-corner-square2" parent="." unique_id=1796650059 instance=ExtResource("3_5iid6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="tile-corner-round2" parent="." unique_id=890107088 instance=ExtResource("4_amshw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="tile-bump2" parent="." unique_id=1358230408 instance=ExtResource("5_vhcyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="tile-crossing2" parent="." unique_id=31472881 instance=ExtResource("6_sgo0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="tile-dirt2" parent="." unique_id=409671049 instance=ExtResource("7_8ltrc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+
+[node name="tile-end-round2" parent="." unique_id=1232916515 instance=ExtResource("8_jicck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+
+[node name="tile-end2" parent="." unique_id=1792331962 instance=ExtResource("9_lu6ry")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 0)
+
+[node name="tile-spawn-end-round2" parent="." unique_id=1285735168 instance=ExtResource("10_22sr4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 0)
+
+[node name="tile-spawn-end2" parent="." unique_id=2006440259 instance=ExtResource("11_m1fcx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+
+[node name="tile-spawn-round2" parent="." unique_id=938744250 instance=ExtResource("12_pne7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
+
+[node name="tile-spawn2" parent="." unique_id=1120381406 instance=ExtResource("13_2r3om")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0)
+
+[node name="tile-split2" parent="." unique_id=212042729 instance=ExtResource("14_npmen")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 0)

@@ -1,0 +1,53 @@
+[gd_resource type="Theme" format=3 uid="uid://dw2ja0bujqpuj"]
+
+[ext_resource type="FontFile" uid="uid://c11s0viyjyvci" path="res://assets/fonts/MotionControlNeueLite.otf" id="1_74mr1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5udgv"]
+bg_color = Color(0.3717045, 0.36171544, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.44799238, 0.43618682, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3agtn"]
+bg_color = Color(1, 1, 0.735357, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.7786653, 0.760622, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74mr1"]
+bg_color = Color(0.999999, 0.9903732, 0.49553835, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.70067567, 0.6829389, 1.1551381e-06, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.56)
+Button/colors/font_hover_color = Color(0.21950102, 0.21950102, 0.21950093, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.0253638, 0.0253638, 0.025363795, 1)
+Button/constants/align_to_largest_stylebox = 1
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_74mr1")
+Button/styles/disabled = SubResource("StyleBoxFlat_5udgv")
+Button/styles/hover = SubResource("StyleBoxFlat_3agtn")
+Button/styles/normal = SubResource("StyleBoxFlat_3agtn")
+Button/styles/pressed = SubResource("StyleBoxFlat_74mr1")

@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cjf7gy7qbfdy2"]
+
+[ext_resource type="PackedScene" uid="uid://c3esorqteqnny" path="res://ui/hud/top bar gui/health bar/health_bar.tscn" id="1_1by1g"]
+[ext_resource type="Script" uid="uid://bxloda3rklmc4" path="res://ui/hud/top bar gui/top_bar_gui.gd" id="1_f8bem"]
+[ext_resource type="PackedScene" uid="uid://tt2aywrmf2xp" path="res://ui/hud/top bar gui/gold collected panel/gold_collected_panel.tscn" id="2_4bwmj"]
+[ext_resource type="PackedScene" uid="uid://cnmih2s0pndle" path="res://ui/hud/top bar gui/wave number panel/wave_number_panel.tscn" id="3_4bwmj"]
+[ext_resource type="PackedScene" uid="uid://cx07hv8qf3l18" path="res://ui/hud/top bar gui/tower quantity panel/tower_quantity_panel.tscn" id="4_hadca"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1by1g"]
+bg_color = Color(0.8776157, 0.8776158, 0.8776157, 1)
+border_width_left = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.096204735, 0.09620475, 0.096204735, 1)
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[node name="TopBarHUD" type="Panel" unique_id=756201367]
+custom_minimum_size = Vector2(544, 56)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -28.0
+offset_right = 272.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1by1g")
+script = ExtResource("1_f8bem")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1901080248]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1855634304]
+layout_mode = 2
+theme_override_constants/separation = 31
+
+[node name="HealthBar" parent="MarginContainer/HBoxContainer" unique_id=628474832 instance=ExtResource("1_1by1g")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="GoldCollectedPanel" parent="MarginContainer/HBoxContainer" unique_id=683379508 instance=ExtResource("2_4bwmj")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TowerQuantityPanel" parent="MarginContainer/HBoxContainer" unique_id=1170852685 instance=ExtResource("4_hadca")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="WaveNumberPanel" parent="MarginContainer/HBoxContainer" unique_id=130129440 instance=ExtResource("3_4bwmj")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4

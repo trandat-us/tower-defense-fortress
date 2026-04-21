@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://eqfcvrj7k5a"]
+
+[ext_resource type="Script" uid="uid://b5mskuli58pb2" path="res://towers/tower.gd" id="1_uyl23"]
+[ext_resource type="ArrayMesh" uid="uid://dvuya1ivbnr3m" path="res://towers/tower_round_base.res" id="1_wmotl"]
+[ext_resource type="ArrayMesh" uid="uid://co4h1sdu38b2c" path="res://towers/selection.res" id="3_86edn"]
+[ext_resource type="Shader" uid="uid://ckft8ccv53cei" path="res://towers/attack_range_visual.gdshader" id="3_b4iyp"]
+[ext_resource type="Shader" uid="uid://c5p6mm2f3yggf" path="res://towers/placeable_plane.gdshader" id="4_23w3r"]
+[ext_resource type="AudioStream" uid="uid://cd7bd83uir75g" path="res://assets/sounds/tower/tower_select.ogg" id="6_7jtxt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_86edn"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_b4iyp")
+shader_parameter/alpha = 1.0
+shader_parameter/ring_color = Color(1, 1, 1, 0.6)
+shader_parameter/ring_width = 0.01
+shader_parameter/outer_radius = 1.0
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_softness = 0.001
+shader_parameter/inner_softness = 0.03
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uyl23"]
+resource_local_to_scene = true
+size = Vector2(6, 6)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uyl23"]
+resource_local_to_scene = true
+height = 0.001
+radius = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7jtxt"]
+render_priority = 0
+shader = ExtResource("4_23w3r")
+shader_parameter/color_gap = Color(0, 0.561, 0, 0.349)
+shader_parameter/color_stripe = Color(0, 0.561, 0, 1)
+shader_parameter/divisions = 15.0
+shader_parameter/stripe_bias = 2.5
+shader_parameter/angle = 0.7854
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_86edn"]
+size = Vector2(1, 1)
+
+[node name="Tower" type="StaticBody3D" unique_id=1172598400]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_uyl23")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1819340235]
+
+[node name="EquipmentBase" type="MeshInstance3D" parent="." unique_id=1906740458]
+unique_name_in_owner = true
+mesh = ExtResource("1_wmotl")
+metadata/_edit_lock_ = true
+
+[node name="Emplacement" type="MeshInstance3D" parent="EquipmentBase" unique_id=907958324]
+unique_name_in_owner = true
+
+[node name="Weapon" type="MeshInstance3D" parent="EquipmentBase/Emplacement" unique_id=558964895]
+unique_name_in_owner = true
+
+[node name="EnemyDetectorArea" type="Area3D" parent="." unique_id=417680240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4438228e-15, 0.48299998, -0.00075)
+collision_layer = 0
+collision_mask = 4
+metadata/_edit_lock_ = true
+
+[node name="AttackRangeVisual" type="MeshInstance3D" parent="EnemyDetectorArea" unique_id=445711872]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000106692314, 0.0021265745, -0.0016282201)
+material_override = SubResource("ShaderMaterial_86edn")
+mesh = SubResource("PlaneMesh_uyl23")
+metadata/_edit_lock_ = true
+
+[node name="EnemyDetectorShape" type="CollisionShape3D" parent="EnemyDetectorArea" unique_id=1658075024]
+unique_name_in_owner = true
+shape = SubResource("CylinderShape3D_uyl23")
+
+[node name="SelectionMesh" type="MeshInstance3D" parent="." unique_id=1856564386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+visible = false
+cast_shadow = 0
+mesh = ExtResource("3_86edn")
+metadata/_edit_lock_ = true
+
+[node name="PlaceablePlane" type="MeshInstance3D" parent="." unique_id=1978360367]
+material_override = SubResource("ShaderMaterial_7jtxt")
+mesh = SubResource("PlaneMesh_86edn")
+
+[node name="ReloadTimer" type="Timer" parent="." unique_id=1929569256]
+one_shot = true
+
+[node name="FocusAudio" type="AudioStreamPlayer" parent="." unique_id=204542970]
+stream = ExtResource("6_7jtxt")
+volume_db = -10.0
+
+[connection signal="body_entered" from="EnemyDetectorArea" to="." method="_on_enemy_detector_area_body_entered"]
+[connection signal="body_exited" from="EnemyDetectorArea" to="." method="_on_enemy_detector_area_body_exited"]

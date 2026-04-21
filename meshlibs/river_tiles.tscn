@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cht6xvoht0wty"]
+
+[ext_resource type="PackedScene" uid="uid://u3fybepjqj51" path="res://assets/models/tile-river-bridge.glb" id="1_h3dar"]
+[ext_resource type="PackedScene" uid="uid://dds4ufcd15bpd" path="res://assets/models/tile-river-corner.glb" id="2_vvbvu"]
+[ext_resource type="PackedScene" uid="uid://bgknes22lkyn8" path="res://assets/models/tile-river-slope.glb" id="3_r1fpu"]
+[ext_resource type="PackedScene" uid="uid://ba4acjliwfuxi" path="res://assets/models/tile-river-straight.glb" id="4_skkhu"]
+[ext_resource type="PackedScene" uid="uid://lvy6h686tiag" path="res://assets/models/tile-river-waterfall.glb" id="5_3x8u4"]
+
+[node name="RiverTiles" type="Node3D" unique_id=283551418]
+
+[node name="tile-river-bridge2" parent="." unique_id=2034953749 instance=ExtResource("1_h3dar")]
+
+[node name="tile-river-corner2" parent="." unique_id=448664805 instance=ExtResource("2_vvbvu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="tile-river-slope2" parent="." unique_id=1920726378 instance=ExtResource("3_r1fpu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="tile-river-straight2" parent="." unique_id=980405345 instance=ExtResource("4_skkhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="tile-river-waterfall2" parent="." unique_id=106813129 instance=ExtResource("5_3x8u4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)

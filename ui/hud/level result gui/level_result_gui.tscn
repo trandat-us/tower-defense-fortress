@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://qelixmnilm6s"]
+
+[ext_resource type="Theme" uid="uid://dw2ja0bujqpuj" path="res://data/themes/button.tres" id="1_t8dnh"]
+[ext_resource type="Script" uid="uid://b0dbh28q73xf1" path="res://ui/hud/level result gui/level_result_gui.gd" id="1_uga6t"]
+[ext_resource type="Shader" uid="uid://cvvkbm8puo753" path="res://ui/hud/level result gui/blur.gdshader" id="2_0sbmk"]
+[ext_resource type="PackedScene" uid="uid://b4tkbju0wobda" path="res://ui/hud/level result gui/trophies_h_box.tscn" id="3_q2byk"]
+[ext_resource type="Texture2D" uid="uid://7d1x5o2qkcny" path="res://assets/textures/icons/skull-and-bones.png" id="4_aj50y"]
+[ext_resource type="AudioStream" uid="uid://dk22yfsmn6b82" path="res://assets/sounds/level_success.mp3" id="6_dlhf4"]
+[ext_resource type="AudioStream" uid="uid://cnsle05h78b47" path="res://assets/sounds/level_failed.mp3" id="7_y5lxa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0sbmk"]
+shader = ExtResource("2_0sbmk")
+shader_parameter/blur_amount = 1.5
+
+[node name="LevelResultGUI" type="Control" unique_id=67986806]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 324)
+script = ExtResource("1_uga6t")
+
+[node name="BlurryBG" type="ColorRect" parent="." unique_id=1426832705]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_0sbmk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelBG" type="Panel" parent="." unique_id=2076788874]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="TrophiesHBox" parent="." unique_id=1469761174 instance=ExtResource("3_q2byk")]
+layout_mode = 1
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 40.0
+offset_bottom = 200.0
+grow_vertical = 1
+
+[node name="LoseIcon" type="TextureRect" parent="." unique_id=806582056]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 40.0
+offset_right = 80.0
+offset_bottom = 200.0
+grow_horizontal = 2
+texture = ExtResource("4_aj50y")
+expand_mode = 2
+
+[node name="ResultLabel" type="Label" parent="." unique_id=1924019225]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -101.0
+offset_bottom = 13.667084
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 128
+text = "VICTORY !"
+horizontal_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="." unique_id=2104157000]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 14.0
+offset_bottom = 45.354187
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 0.573)
+theme_override_font_sizes/font_size = 35
+text = "Level 1  •  The Corridor"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonsHBox" type="HBoxContainer" parent="." unique_id=318647827]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -491.0
+offset_top = -192.0
+offset_right = 491.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+mouse_behavior_recursive = 1
+theme_override_constants/separation = 107
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="ButtonsHBox" unique_id=1249194133]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+theme = ExtResource("1_t8dnh")
+theme_override_font_sizes/font_size = 48
+text = "Try Again"
+
+[node name="MainMenuButton" type="Button" parent="ButtonsHBox" unique_id=564836869]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+theme = ExtResource("1_t8dnh")
+theme_override_font_sizes/font_size = 48
+text = "Main Menu"
+
+[node name="NextLevelButton" type="Button" parent="ButtonsHBox" unique_id=69554171]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+theme = ExtResource("1_t8dnh")
+theme_override_font_sizes/font_size = 48
+text = "Next Level"
+
+[node name="LevelSuccessAudio" type="AudioStreamPlayer" parent="." unique_id=1823854658]
+stream = ExtResource("6_dlhf4")
+volume_db = -5.0
+
+[node name="LevelFailedAudio" type="AudioStreamPlayer" parent="." unique_id=1174849519]
+stream = ExtResource("7_y5lxa")
+volume_db = -5.0
+
+[connection signal="pressed" from="ButtonsHBox/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="ButtonsHBox/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="ButtonsHBox/NextLevelButton" to="." method="_on_next_level_button_pressed"]

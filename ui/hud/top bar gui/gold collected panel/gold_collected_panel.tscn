@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://tt2aywrmf2xp"]
+
+[ext_resource type="Script" uid="uid://bykay1g4rj8wa" path="res://ui/hud/top bar gui/gold collected panel/gold_collected_panel.gd" id="1_v5skw"]
+[ext_resource type="Texture2D" uid="uid://drw0i1mwbxh87" path="res://assets/textures/icons/coin.png" id="2_v5skw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjovg"]
+bg_color = Color(1, 1, 0.63105136, 0.771)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0.511052, 0.5013354, 5.7756904e-07, 0.5137255)
+shadow_size = 4
+
+[node name="GoldCollectedPanel" type="Panel" unique_id=683379508]
+custom_minimum_size = Vector2(86, 34)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -15.0
+offset_right = 40.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qjovg")
+script = ExtResource("1_v5skw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1838686549]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=382990601]
+texture_filter = 1
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_v5skw")
+expand_mode = 2
+flip_h = true
+
+[node name="GoldLabel" type="Label" parent="HBoxContainer" unique_id=1676544988]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.78918934, 0.5078246, 1.92523e-07, 1)
+theme_override_font_sizes/font_size = 24
+text = "150"

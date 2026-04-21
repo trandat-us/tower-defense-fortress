@@ -1,0 +1,169 @@
+[gd_scene format=3 uid="uid://yjk6irp0vfm1"]
+
+[ext_resource type="PackedScene" uid="uid://eqfcvrj7k5a" path="res://towers/tower.tscn" id="1_3gsif"]
+[ext_resource type="Script" uid="uid://bbht44p5ri1fv" path="res://towers/catapult/catapult_tower.gd" id="2_2b1sn"]
+[ext_resource type="ArrayMesh" uid="uid://cw6q2am02pxwb" path="res://towers/catapult/catapult_emplacement.res" id="2_od7dp"]
+[ext_resource type="Shader" uid="uid://ckft8ccv53cei" path="res://towers/attack_range_visual.gdshader" id="2_r7txf"]
+[ext_resource type="Resource" uid="uid://bwwrbk4lhydr1" path="res://data/info/towers/catapult_info.tres" id="3_7uhv7"]
+[ext_resource type="ArrayMesh" uid="uid://vuonguqx0ok1" path="res://towers/catapult/catapult_weapon.res" id="3_od7dp"]
+[ext_resource type="PackedScene" uid="uid://qcg3j2ck0dkt" path="res://towers/catapult/boulder/catapult_boulder.tscn" id="4_81jdy"]
+[ext_resource type="AudioStream" uid="uid://c7l5p0uuf0yyv" path="res://assets/sounds/tower/catapult_throw_woodcracking.wav" id="8_pbme7"]
+[ext_resource type="AudioStream" uid="uid://gxdc5aujv5w2" path="res://assets/sounds/tower/catapult_throw_woosh.wav" id="9_ujsep"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_od7dp"]
+height = 0.5
+
+[sub_resource type="Animation" id="Animation_2b1sn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EquipmentBase/Emplacement/Weapon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.26179937, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_81jdy"]
+resource_name = "throw"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EquipmentBase/Emplacement/Weapon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.6, 1),
+"transitions": PackedFloat32Array(0.2332587, 1, 2, 1),
+"update": 0,
+"values": [Vector3(-0.26179937, 0, 0), Vector3(1.0471976, 0, 0), Vector3(1.0471976, 0, 0), Vector3(-0.2617994, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.13333334, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_throw_boulder"
+}, {
+"args": [],
+"method": &"_reload_boulder"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WoodcrackingAudio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WooshAudio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2b1sn"]
+_data = {
+&"RESET": SubResource("Animation_2b1sn"),
+&"throw": SubResource("Animation_81jdy")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ujsep"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_r7txf")
+shader_parameter/alpha = 1.0
+shader_parameter/ring_color = Color(1, 1, 1, 0.6)
+shader_parameter/ring_width = 0.01
+shader_parameter/outer_radius = 1.0
+shader_parameter/inner_radius = 0.3750000178125
+shader_parameter/outer_softness = 0.001
+shader_parameter/inner_softness = 0.03
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pp767"]
+resource_local_to_scene = true
+size = Vector2(8, 8)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_v28mk"]
+resource_local_to_scene = true
+height = 1.0002501
+radius = 4.0
+
+[node name="CatapultTower" unique_id=1172598400 instance=ExtResource("1_3gsif")]
+script = ExtResource("2_2b1sn")
+info = ExtResource("3_7uhv7")
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=1819340235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("CylinderShape3D_od7dp")
+
+[node name="Emplacement" parent="EquipmentBase" parent_id_path=PackedInt32Array(1906740458) index="0" unique_id=907958324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = ExtResource("2_od7dp")
+
+[node name="Weapon" parent="EquipmentBase/Emplacement" index="0" unique_id=558964895]
+transform = Transform3D(1, 0, 0, 0, 0.965925, 0.25881878, 0, -0.25881878, 0.965925, 0, 0.36245802, 0.031694174)
+mesh = ExtResource("3_od7dp")
+
+[node name="CatapultBoulder" parent="EquipmentBase/Emplacement/Weapon" index="0" unique_id=1614803278 instance=ExtResource("4_81jdy")]
+transform = Transform3D(1, 0, 0, 0, 0.99999976, -4.4703484e-08, 0, 4.4703484e-08, 0.99999976, 0, 0.10115069, -0.3249376)
+
+[node name="BoulderTransform" type="Marker3D" parent="EquipmentBase/Emplacement/Weapon" index="1" unique_id=1245059637]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.9999998, 1.4901161e-08, 0, -1.4901161e-08, 0.9999998, 0, 0.10115063, -0.3249376)
+
+[node name="ThrowAnimPlayer" type="AnimationPlayer" parent="EquipmentBase/Emplacement/Weapon" index="2" unique_id=1248489376]
+unique_name_in_owner = true
+root_node = NodePath("../../../..")
+libraries/ = SubResource("AnimationLibrary_2b1sn")
+
+[node name="AttackRangeVisual" parent="EnemyDetectorArea" parent_id_path=PackedInt32Array(417680240) index="0" unique_id=445711872]
+material_override = SubResource("ShaderMaterial_ujsep")
+mesh = SubResource("PlaneMesh_pp767")
+
+[node name="EnemyDetectorShape" parent="EnemyDetectorArea" parent_id_path=PackedInt32Array(417680240) index="1" unique_id=1658075024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49962506, 0)
+shape = SubResource("CylinderShape3D_v28mk")
+
+[node name="WoodcrackingAudio" type="AudioStreamPlayer3D" parent="." index="6" unique_id=641536338]
+stream = ExtResource("8_pbme7")
+volume_db = -15.0
+
+[node name="WooshAudio" type="AudioStreamPlayer3D" parent="." index="7" unique_id=714968666]
+stream = ExtResource("9_ujsep")
+volume_db = -5.0

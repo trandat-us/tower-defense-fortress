@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="TowerInfo" format=3 uid="uid://dgjb14kk7wusg"]
+
+[ext_resource type="Texture2D" uid="uid://bragca362tnfi" path="res://assets/textures/tower previews/ballista_preview.png" id="2_tua2e"]
+[ext_resource type="Script" uid="uid://bgm4s4mac8ec1" path="res://data/info/towers/def/tower_info.gd" id="3_25m51"]
+
+[resource]
+script = ExtResource("3_25m51")
+max_health = Array[int]([80, 120, 160, 200, 240])
+attack_damage = Array[int]([9, 11, 14, 19, 24])
+attack_range = Array[float]([5.0, 5.0, 5.5, 5.5, 6.0])
+reload_times = Array[float]([0.2, 0.18000000000000002, 0.15000000000000002, 0.13, 0.09999999999999999])
+base_cost = 180
+upgrade_costs = Array[int]([230, 290, 360, 450])
+id = &"tower_ballista"
+name = "ballista"
+title = "long_range"
+icon = ExtResource("2_tua2e")
+metadata/_custom_type_script = "uid://bgm4s4mac8ec1"

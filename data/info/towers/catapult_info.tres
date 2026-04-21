@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="CatapultInfo" format=3 uid="uid://bwwrbk4lhydr1"]
+
+[ext_resource type="Script" uid="uid://crd88ncluqgrk" path="res://data/info/towers/def/catapult_info.gd" id="2_08utk"]
+[ext_resource type="Texture2D" uid="uid://bwaxdi5eyy8a1" path="res://assets/textures/tower previews/catapult_preview.png" id="2_pij8g"]
+
+[sub_resource type="Curve" id="Curve_pbme7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 1, Vector2(0.2, 1), 0.0, -0.625, 0, 1, Vector2(1, 0.5), -0.625, 0.0, 1, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[resource]
+script = ExtResource("2_08utk")
+aoe_radius = Array[float]([1.0, 1.0, 1.1, 1.1, 1.2])
+aoe_falloff = SubResource("Curve_pbme7")
+max_health = Array[int]([100, 140, 180, 220, 260])
+attack_damage = Array[int]([28, 34, 42, 50, 62])
+attack_range = Array[float]([4.0, 4.25, 4.5, 4.75, 5.0])
+reload_times = Array[float]([1.25, 1.2, 1.15, 1.1, 1.0])
+base_cost = 140
+upgrade_costs = Array[int]([180, 240, 290, 350, 440])
+id = &"tower_catapult"
+name = "catapult"
+title = "area_control"
+icon = ExtResource("2_pij8g")
+metadata/_custom_type_script = "uid://crd88ncluqgrk"

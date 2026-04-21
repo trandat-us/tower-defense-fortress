@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://b5c8fucr3v613"]
+
+[ext_resource type="Script" uid="uid://xreloooajg7j" path="res://ui/hud/level entry gui/level_entry_gui.gd" id="1_16672"]
+[ext_resource type="Shader" uid="uid://ctch65iwsy8cr" path="res://ui/hud/level entry gui/circle_color_rect.gdshader" id="1_hat7r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_16672"]
+bg_color = Color(0, 0, 0, 0.307)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_16672"]
+shader = ExtResource("1_hat7r")
+
+[sub_resource type="Curve" id="Curve_16672"]
+_data = [Vector2(0, 1), 0.0, -1.3140496, 0, 1, Vector2(1, 0), 0.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_fgr1k"]
+curve = SubResource("Curve_16672")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_16672"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 250.0
+initial_velocity_max = 250.0
+gravity = Vector3(0, 0, 0)
+scale_min = 10.0
+scale_max = 10.0
+alpha_curve = SubResource("CurveTexture_fgr1k")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7w8x2"]
+bg_color = Color(0.050980393, 0.15686275, 0.09411765, 1)
+border_width_right = 6
+border_color = Color(0.23921569, 0.60784316, 0.47843137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hat7r"]
+bg_color = Color(0.050980393, 0.15686275, 0.09411765, 1)
+border_width_left = 6
+border_color = Color(0.23921569, 0.60784316, 0.47843137, 1)
+
+[node name="LevelEntryGUI" type="Control" unique_id=428641992]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_16672")
+
+[node name="MainPanel" type="Panel" parent="." unique_id=28829475]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_16672")
+
+[node name="CircleColorRect" type="ColorRect" parent="MainPanel" unique_id=1754271383]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_16672")
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -175.4
+offset_right = 128.0
+offset_bottom = 80.600006
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(128, 128)
+color = Color(1, 1, 1, 0.717)
+
+[node name="LevelNumberLabel" type="Label" parent="MainPanel" unique_id=940478963]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -171.0
+offset_right = 41.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(45, 128)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 224
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="MainPanel" unique_id=2024185451]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_top = 62.0
+offset_right = 54.0
+offset_bottom = 126.0
+grow_horizontal = 2
+pivot_offset = Vector2(54, 32)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 64
+text = "LEVEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelTitleLabel" type="Label" parent="MainPanel" unique_id=1569129773]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -216.0
+offset_bottom = -144.33331
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.9098039, 0.78431374, 0.4392157, 1)
+theme_override_colors/font_outline_color = Color(0.3676787, 0.29912698, 0.1010532, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 80
+text = "The Corridor"
+horizontal_alignment = 1
+
+[node name="ClickToBeginLabel" type="Label" parent="MainPanel" unique_id=863787252]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -83.0
+offset_right = 75.0
+offset_bottom = -54.333313
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.74700004)
+theme_override_font_sizes/font_size = 32
+text = "click to begin"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="MainPanel" unique_id=1135092124]
+modulate = Color(1, 1, 1, 0.554)
+position = Vector2(577, 301)
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 0.77
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_16672")
+
+[node name="GatePanelHBox" type="HBoxContainer" parent="." unique_id=1190610157]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 561
+alignment = 1
+
+[node name="LeftGate" type="Panel" parent="GatePanelHBox" unique_id=180833028]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_7w8x2")
+
+[node name="RightGate" type="Panel" parent="GatePanelHBox" unique_id=1267949531]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_hat7r")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

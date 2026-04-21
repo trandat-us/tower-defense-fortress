@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dh4ffmwwhafek"]
+
+[ext_resource type="Theme" uid="uid://dw2ja0bujqpuj" path="res://data/themes/button.tres" id="1_qkstt"]
+[ext_resource type="Script" uid="uid://dubb008pcbq14" path="res://ui/hud/speed boost button/speed_boost_button.gd" id="2_qkstt"]
+
+[node name="SpeedBoostButton" type="Button" unique_id=1517526775]
+custom_minimum_size = Vector2(48, 48)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qkstt")
+theme_override_font_sizes/font_size = 36
+toggle_mode = true
+text = "x1"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_qkstt")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

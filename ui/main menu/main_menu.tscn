@@ -1,0 +1,371 @@
+[gd_scene format=3 uid="uid://dfms0aeyf8yv3"]
+
+[ext_resource type="Script" uid="uid://dy16oiw138yi5" path="res://ui/main menu/main_menu.gd" id="1_cngla"]
+[ext_resource type="Theme" uid="uid://dw2ja0bujqpuj" path="res://data/themes/button.tres" id="2_chnft"]
+[ext_resource type="PackedScene" uid="uid://gal6bia6n26t" path="res://ui/main menu/world viewport/main_menu_world.tscn" id="2_cngla"]
+[ext_resource type="Texture2D" uid="uid://bl22cquko2peh" path="res://assets/textures/icons/sign-out.png" id="4_sln25"]
+[ext_resource type="Texture2D" uid="uid://bafvoknyg6dx3" path="res://assets/textures/icons/book.png" id="6_fputl"]
+[ext_resource type="Script" uid="uid://c8h2bsygy0ym1" path="res://ui/main menu/level_button_grid.gd" id="7_efoca"]
+[ext_resource type="Texture2D" uid="uid://ubpjol5kko6m" path="res://assets/textures/icons/infinity.png" id="7_ot5e3"]
+[ext_resource type="AudioStream" uid="uid://dvu56tdsn2oc7" path="res://assets/sounds/main_menu_bgm.wav" id="8_efoca"]
+[ext_resource type="PackedScene" uid="uid://c8ictadvbumsh" path="res://utils/control sound player/control_sound_player.tscn" id="8_utxgf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sln25"]
+
+[node name="MainMenu" type="Control" unique_id=1779627307]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cngla")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1519906298]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1741999864]
+transparent_bg = true
+handle_input_locally = false
+scaling_3d_scale = 2.0
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="MainMenuWorld" parent="SubViewportContainer/SubViewport" unique_id=1822125720 instance=ExtResource("2_cngla")]
+
+[node name="MainControls" type="Control" parent="." unique_id=256573591]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TDLabel" type="Label" parent="MainControls" unique_id=1759910143]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 65.0
+offset_bottom = 108.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 48
+text = "T O W E R   D E F E N S E"
+horizontal_alignment = 1
+
+[node name="FortressLabel" type="Label" parent="MainControls" unique_id=641374524]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 99.0
+offset_bottom = 242.33333
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/font_size = 160
+text = "Fortress"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainControls" unique_id=730706293]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -32.0
+offset_right = 115.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 48
+
+[node name="PlayButton" type="Button" parent="MainControls/VBoxContainer" unique_id=1763870626]
+custom_minimum_size = Vector2(224, 60)
+layout_mode = 2
+theme = ExtResource("2_chnft")
+theme_override_font_sizes/font_size = 48
+text = "Play"
+
+[node name="SettingsButton" type="Button" parent="MainControls/VBoxContainer" unique_id=2069444148]
+custom_minimum_size = Vector2(224, 60)
+layout_mode = 2
+theme = ExtResource("2_chnft")
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="MainControls/VBoxContainer" unique_id=1615052748]
+custom_minimum_size = Vector2(224, 60)
+layout_mode = 2
+theme = ExtResource("2_chnft")
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+
+[node name="SelectModeControls" type="Control" parent="." unique_id=1319840148]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectModeControls" unique_id=1086079065]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -208.0
+offset_right = 225.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SelectModeControls/VBoxContainer" unique_id=785650916]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="BackButton" type="Button" parent="SelectModeControls/VBoxContainer/HBoxContainer" unique_id=1756185623]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_chnft")
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="SelectModeControls/VBoxContainer/HBoxContainer/BackButton" unique_id=424905886]
+material = SubResource("ShaderMaterial_sln25")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_sln25")
+expand_mode = 1
+flip_h = true
+
+[node name="Label" type="Label" parent="SelectModeControls/VBoxContainer/HBoxContainer" unique_id=2090602504]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 18
+theme_override_font_sizes/font_size = 80
+text = "Select Mode"
+
+[node name="ClassicButton" type="Button" parent="SelectModeControls/VBoxContainer" unique_id=1670771856]
+custom_minimum_size = Vector2(450, 140)
+layout_mode = 2
+theme = ExtResource("2_chnft")
+
+[node name="MarginContainer" type="MarginContainer" parent="SelectModeControls/VBoxContainer/ClassicButton" unique_id=1790807515]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SelectModeControls/VBoxContainer/ClassicButton/MarginContainer" unique_id=39868599]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="TextureRect" type="TextureRect" parent="SelectModeControls/VBoxContainer/ClassicButton/MarginContainer/HBoxContainer" unique_id=351478228]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_fputl")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectModeControls/VBoxContainer/ClassicButton/MarginContainer/HBoxContainer" unique_id=2094556358]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="SelectModeControls/VBoxContainer/ClassicButton/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1907685225]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "Classic"
+
+[node name="Label2" type="Label" parent="SelectModeControls/VBoxContainer/ClassicButton/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1031766720]
+custom_minimum_size = Vector2(322, 38.833332)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.6)
+theme_override_font_sizes/font_size = 20
+text = "Progress through handcrafted levels, each with a unique map layout. Earn up to 3 stars per level."
+autowrap_mode = 2
+
+[node name="EndlessButton" type="Button" parent="SelectModeControls/VBoxContainer" unique_id=824959157]
+custom_minimum_size = Vector2(450, 140)
+layout_mode = 2
+theme = ExtResource("2_chnft")
+disabled = true
+
+[node name="MarginContainer" type="MarginContainer" parent="SelectModeControls/VBoxContainer/EndlessButton" unique_id=189265132]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SelectModeControls/VBoxContainer/EndlessButton/MarginContainer" unique_id=630256117]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="TextureRect" type="TextureRect" parent="SelectModeControls/VBoxContainer/EndlessButton/MarginContainer/HBoxContainer" unique_id=1456759894]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_ot5e3")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectModeControls/VBoxContainer/EndlessButton/MarginContainer/HBoxContainer" unique_id=1927859320]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="SelectModeControls/VBoxContainer/EndlessButton/MarginContainer/HBoxContainer/VBoxContainer" unique_id=718713939]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "Endless"
+
+[node name="Label2" type="Label" parent="SelectModeControls/VBoxContainer/EndlessButton/MarginContainer/HBoxContainer/VBoxContainer" unique_id=40018547]
+custom_minimum_size = Vector2(322, 38.833332)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.70000005)
+theme_override_font_sizes/font_size = 20
+text = "Survive as long as possible on the labyrinth map. Enemies scale infinitely — how far can you go?"
+autowrap_mode = 2
+
+[node name="LevelSelectControls" type="Control" parent="." unique_id=2096534555]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelectControls" unique_id=851787943]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 256.0
+offset_top = 32.0
+offset_right = -256.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelectControls/VBoxContainer" unique_id=1032931016]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="BackButton" type="Button" parent="LevelSelectControls/VBoxContainer/HBoxContainer" unique_id=614124864]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_chnft")
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="LevelSelectControls/VBoxContainer/HBoxContainer/BackButton" unique_id=2038608851]
+material = SubResource("ShaderMaterial_sln25")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_sln25")
+expand_mode = 1
+flip_h = true
+
+[node name="Label" type="Label" parent="LevelSelectControls/VBoxContainer/HBoxContainer" unique_id=2123288864]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 18
+theme_override_font_sizes/font_size = 80
+text = "Classic Mode"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LevelSelectControls/VBoxContainer" unique_id=902592093]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LevelButtonGrid" type="GridContainer" parent="LevelSelectControls/VBoxContainer/ScrollContainer" unique_id=2132352891]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+script = ExtResource("7_efoca")
+open_all = true
+
+[node name="VersionLabel" type="Label" parent="." unique_id=1194445812]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -17.0
+offset_right = 66.0
+offset_bottom = -0.875
+grow_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "Version 0.1"
+
+[node name="ControlSoundPlayer" parent="." unique_id=1157000690 node_paths=PackedStringArray("root_node") instance=ExtResource("8_utxgf")]
+root_node = NodePath("..")
+
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1075925969]
+stream = ExtResource("8_efoca")
+volume_db = -15.0
+bus = &"BGM"
+
+[connection signal="pressed" from="MainControls/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainControls/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="SelectModeControls/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_main_button_pressed"]
+[connection signal="pressed" from="SelectModeControls/VBoxContainer/ClassicButton" to="." method="_on_classic_button_pressed"]
+[connection signal="pressed" from="SelectModeControls/VBoxContainer/EndlessButton" to="." method="_on_endless_button_pressed"]
+[connection signal="pressed" from="LevelSelectControls/VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_mode_button_pressed"]
