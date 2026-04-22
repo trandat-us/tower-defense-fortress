@@ -17,11 +17,7 @@ signal prepare_phase_ended
 @onready var level_entry_gui: LevelEntryGUI = %LevelEntryGUI
 @onready var gear_button: Button = %GearButton
 
-@export var level: int = 1
-
 func _ready() -> void:
-	level_label.text = "Level %d" % level
-	
 	level_entry_gui.visible = true
 	
 	ingame_controls.visible = false
@@ -31,6 +27,7 @@ func _ready() -> void:
 	level_result_gui.visible = false
 
 func init_info(info: LevelInfo, stats: LevelStats) -> void:
+	level_label.text = "Level %d" % info.number
 	top_bar_gui.init_level_stats(stats)
 	level_entry_gui.init_level_info(info)
 	level_result_gui.init_level_info(info)
