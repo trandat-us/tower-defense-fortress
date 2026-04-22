@@ -43,4 +43,4 @@ Email: minhdattran1199@gmail.com
 
 ## 👥 Assets & Credits
 - Models from [Kenney - Tower Defense Kit](https://kenney.nl/assets/tower-defense-kit) (CC0 License)
-- Textures, fonts, sound effects, and UI assets from various creators on [itch.io](https://itch.io/) (free asset packs under respective licenses)
+- Textures, fonts, sound effects, and UI assets from various creators on [itch.io](https://itch.io/) and [pixabay.com](https://pixabay.com/) (free asset packs under respective licenses)
